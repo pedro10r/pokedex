@@ -1,10 +1,12 @@
-import { StatusBar } from 'react-native';
+import { StatusBar, TouchableOpacityProps } from 'react-native';
 
 import logo from '../../assets/logo.png';
 
 import { Container, Logo, BackButton, Icon } from './styles';
 
-export function Header() {
+type Props = TouchableOpacityProps & {}
+
+export function Header({ ...rest }: Props) {
   return (
     <Container>
       <StatusBar
@@ -13,7 +15,7 @@ export function Header() {
         translucent
       />
       
-      <BackButton>
+      <BackButton {...rest}>
         <Icon />
       </BackButton>
 

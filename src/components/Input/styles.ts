@@ -7,6 +7,7 @@ export const Container = styled.View`
   align-items: center;
 
   margin-top: 22px;
+  margin-bottom: 15px;
 
   width: 100%;
   height: 52px;
@@ -37,7 +38,7 @@ export const ButtonSearch = styled.TouchableOpacity``;
 
 export const Icon = styled(ArrowCircleRight).attrs(({ theme }) => ({
   size: 32,
-  color: theme.colors.primary,
+  color: '#395BA7',
   weight: 'fill'
 }))`
   margin-left: 12px;

@@ -15,8 +15,8 @@ export const Container = styled.View`
   padding-top: 30px;
   padding-left: 15px;
 
-  border-bottom-left-radius: 22px;
-  border-bottom-right-radius: 22px;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
 `;
 
 export const BackButton = styled.TouchableOpacity`
