@@ -16,13 +16,13 @@ export const Container = styled.View`
   background-color: ${({ theme }) => theme.colors.white};
   
   border-width: 1px;
-  border-color: ${({ theme }) => theme.colors.primary_support};
+  border-color: #3663AD;
   border-radius: 50px;
 `;
 
 export const IconSearch = styled(MagnifyingGlass).attrs(({ theme }) => ({
   size: 24,
-  color: theme.colors.primary_support,
+  color: '#3663AD',
 }))`
   margin-right: 12px;
 `;

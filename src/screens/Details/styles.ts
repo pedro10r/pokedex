@@ -25,7 +25,7 @@ export const ContentDetails = styled.View`
 
 export const Title = styled.Text`
   font-family: ${({ theme }) => theme.fonts.regular};
-  font-size: ${RFValue(12)}px;
+  font-size: ${RFValue(13)}px;
   color: ${({ theme }) => theme.colors.primary};
   text-align: center;
 `;
@@ -44,8 +44,8 @@ export const DetailInfo = styled.View``;
 
 export const DetailInfoText = styled.Text`
   font-family: ${({ theme }) => theme.fonts.regular};
-  font-size: ${RFValue(11)}px;
-  color: ${({ theme }) => theme.colors.primary_support};
+  font-size: ${RFValue(11.5)}px;
+  color: #395BA7;
   text-align: center;
 
   margin-bottom: 4px;
@@ -63,6 +63,6 @@ export const DetailInfoAreaValue = styled.View`
 
 export const DetailInfoValue = styled.Text`
   font-family: ${({ theme }) => theme.fonts.bold};
-  font-size: ${RFValue(12)}px;
+  font-size: ${RFValue(13)}px;
   color: ${({ theme }) => theme.colors.white};
 `;

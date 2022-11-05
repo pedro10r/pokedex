@@ -10,13 +10,13 @@ export const Container = styled.View`
 
 export const Content = styled.View`
   flex: 1;
-  padding: 15px;
+  padding: 20px 15px 0;
   padding-bottom: ${getBottomSpace()}px;
 `;
 
 export const Title = styled.Text`
   font-family: ${({ theme }) => theme.fonts.bold};
-  font-size: ${RFValue(20)}px;
+  font-size: ${RFValue(22)}px;
   color: ${({ theme }) => theme.colors.primary};
   text-align: left;
 `;

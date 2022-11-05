@@ -13,7 +13,7 @@ import {
 
 export function HeaderDetails() {
   return (
-    <Container>
+     <>
       <Bubble>
         <PokemonImage
           resizeMode="contain"
@@ -21,23 +21,25 @@ export function HeaderDetails() {
         />
       </Bubble>
 
-      <HeaderInfo>
-        <NumberPokedexArea>
-          <NumberPokedex>#001</NumberPokedex>
-        </NumberPokedexArea>
+      <Container>
+        <HeaderInfo>
+          <NumberPokedexArea>
+            <NumberPokedex>#001</NumberPokedex>
+          </NumberPokedexArea>
 
-        <PokemonName>Bulbasaur</PokemonName>
+          <PokemonName>Bulbasaur</PokemonName>
 
-        <Habilities>
-          <Hability>
-            <HabilityText>Grass</HabilityText>
-          </Hability>
+          <Habilities>
+            <Hability>
+              <HabilityText>Grass</HabilityText>
+            </Hability>
 
-          <Hability>
-            <HabilityText>Poison</HabilityText>
-          </Hability>
-        </Habilities>
-        </HeaderInfo>
-    </Container>
+            <Hability>
+              <HabilityText>Poison</HabilityText>
+            </Hability>
+          </Habilities>
+          </HeaderInfo>
+      </Container>
+    </>
   );
 }

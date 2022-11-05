@@ -25,6 +25,7 @@ export function Input({ control, name, ...rest }: InputProps) {
         name={name}
         render={({ field: { value, onChange }}) => (
           <InputText
+            placeholderTextColor={'#909bb6'}
             value={value}
             onChangeText={onChange}
             {...rest}

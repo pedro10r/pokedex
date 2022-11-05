@@ -47,7 +47,7 @@ export function Stats() {
         <GenderPercent>
           <Gender>
             <Ionicons
-              name='male-outline'
+              name='male-sharp'
               size={RFValue(15)}
               color={'#2D5BC6'}
             />
@@ -56,7 +56,7 @@ export function Stats() {
 
           <Gender>
             <Ionicons
-              name='female-outline'
+              name='female-sharp'
               size={RFValue(15)}
               color={'#FF386F'}
             />
@@ -73,7 +73,7 @@ export function Stats() {
           <Value>45</Value>
           <Progress.Bar
             progress={45 / 100}
-            width={94}
+            width={105}
             borderWidth={0}
             unfilledColor='#B7B7B8'
             color={colorPercentageProgress(45 / 100)}
@@ -88,7 +88,7 @@ export function Stats() {
           <Value>49</Value>
           <Progress.Bar
             progress={49 / 100}
-            width={94}
+            width={105}
             borderWidth={0}
             unfilledColor='#B7B7B8'
             color={colorPercentageProgress(49 / 100)}
@@ -97,13 +97,13 @@ export function Stats() {
       </ContentStats>
 
       <ContentStats>
-        <TitleStats>Sefense</TitleStats>
+        <TitleStats>Defense</TitleStats>
 
         <ValueStats>
           <Value>49</Value>
           <Progress.Bar
             progress={49 / 100}
-            width={94}
+            width={105}
             borderWidth={0}
             unfilledColor='#B7B7B8'
             color={colorPercentageProgress(49 / 100)}
@@ -118,7 +118,7 @@ export function Stats() {
           <Value>65</Value>
           <Progress.Bar
             progress={65 / 100}
-            width={94}
+            width={105}
             borderWidth={0}
             unfilledColor='#B7B7B8'
             color={colorPercentageProgress(65 / 100)}
@@ -133,7 +133,7 @@ export function Stats() {
           <Value>65</Value>
           <Progress.Bar
             progress={.65}
-            width={94}
+            width={105}
             borderWidth={0}
             unfilledColor='#B7B7B8'
             color={colorPercentageProgress(65 / 100)}
@@ -148,7 +148,7 @@ export function Stats() {
           <Value>45</Value>
           <Progress.Bar
             progress={.45}
-            width={94}
+            width={105}
             borderWidth={0}
             unfilledColor='#B7B7B8'
             color={colorPercentageProgress(45 / 100)}
@@ -163,7 +163,7 @@ export function Stats() {
           <Value>318</Value>
           <Progress.Bar
             progress={318 / 600 * 100 / 100}
-            width={94}
+            width={105}
             borderWidth={0}
             unfilledColor='#B7B7B8'
             color={colorPercentageProgressTotal(318)}

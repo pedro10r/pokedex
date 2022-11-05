@@ -15,7 +15,7 @@ export const StatsHeader = styled.View`
 
 export const GenderTitle = styled.Text`
   font-family: ${({ theme }) => theme.fonts.normal};
-  font-size: ${RFValue(12)}px;
+  font-size: ${RFValue(13)}px;
   color: ${({ theme }) => theme.colors.primary};
 `;
 
@@ -26,15 +26,15 @@ export const GenderPercent = styled.View`
 
 export const Gender = styled.View`
   flex-direction: row;
-  margin-left: 15px;
+  margin-left: 18px;
 `;
 
 export const PercentText = styled.Text`
   font-family: ${({ theme }) => theme.fonts.normal};
-  font-size: ${RFValue(12)}px;
+  font-size: ${RFValue(14)}px;
   color: ${({ theme }) => theme.colors.primary};
 
-  margin-left: 5px;
+  margin-left: 7px;
 `;
 
 export const ContentStats = styled.View`
@@ -49,7 +49,7 @@ export const ContentStats = styled.View`
 
 export const TitleStats = styled.Text`
   font-family: ${({ theme }) => theme.fonts.normal};
-  font-size: ${RFValue(12)}px;
+  font-size: ${RFValue(13)}px;
   color: ${({ theme }) => theme.colors.primary};
 `;
 
@@ -62,8 +62,8 @@ export const ValueStats = styled.View`
 
 export const Value = styled.Text`
   font-family: ${({ theme }) => theme.fonts.normal};
-  font-size: ${RFValue(12)}px;
+  font-size: ${RFValue(13)}px;
   color: ${({ theme }) => theme.colors.primary};
 
-  margin-right: 10px;
+  margin-right: 5px;
 `;

@@ -3,7 +3,7 @@ import { RFValue } from 'react-native-responsive-fontsize';
 
 export const Container = styled.TouchableOpacity`
   width: 48%;
-  height: 230px;
+  height: 235px;
 
   padding: 20px;
   margin-right: 14px;
@@ -36,25 +36,26 @@ export const NumberPokedex = styled.Text`
 `;
 
 export const Bubble = styled.View`
-  width: 130px;
-  height: 130px;
+  width: 135px;
+  height: 135px;
   margin-bottom: 5px;
+  margin-top: 5px;
 
   align-items: center;
   justify-content: center;
 
   background-color: #71E5C9;
-  border-radius: 65px;
+  border-radius: 67.5px;
 `;
 
 export const PokemonImage = styled.Image`
-  width: 110px;
-  height: 110px;
+  width: 115px;
+  height: 115px;
 `;
 
 export const PokemonName = styled.Text`
   font-family: ${({ theme }) => theme.fonts.bold};
-  font-size: ${RFValue(19)}px;
+  font-size: ${RFValue(20)}px;
   color: ${({ theme }) => theme.colors.white};
 `;
 

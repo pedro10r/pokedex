@@ -16,18 +16,19 @@ export const Container = styled.View`
 
 export const Bubble = styled.View`
   position: absolute;
-  left: 25px;
-  top: 20px;
+  z-index: 100;
+  left: 35px;
+  top: 33px;
 
-  width: 140px;
-  height: 140px;
+  width: 150px;
+  height: 150px;
   margin-bottom: 5px;
 
   align-items: center;
   justify-content: center;
 
   background-color: #71E5C9;
-  border-radius: 70px;
+  border-radius: 75px;
 `;
 
 export const PokemonImage = styled.Image`
@@ -40,8 +41,8 @@ export const HeaderInfo = styled.View`
 `;
 
 export const NumberPokedexArea = styled.View`
-  width: 55px;
-  padding: 2px;
+  width: 60px;
+  padding: 4px;
   margin-bottom: 10px;
 
   background-color: #FFCB05;
@@ -50,7 +51,7 @@ export const NumberPokedexArea = styled.View`
 
 export const NumberPokedex = styled.Text`
   font-family: ${({ theme }) => theme.fonts.regular};
-  font-size: ${RFValue(12)}px;
+  font-size: ${RFValue(13)}px;
   color: ${({ theme }) => theme.colors.primary};
 
   text-align: center;
@@ -58,7 +59,7 @@ export const NumberPokedex = styled.Text`
 
 export const PokemonName = styled.Text`
   font-family: ${({ theme }) => theme.fonts.bold};
-  font-size: ${RFValue(23)}px;
+  font-size: ${RFValue(24)}px;
   color: ${({ theme }) => theme.colors.white};
 
   margin-bottom: 10px;
@@ -78,6 +79,6 @@ export const Hability = styled.View`
 
 export const HabilityText = styled.Text`
   font-family: ${({ theme }) => theme.fonts.regular};
-  font-size: ${RFValue(12)}px;
+  font-size: ${RFValue(13)}px;
   color: ${({ theme }) => theme.colors.white};
 `;
