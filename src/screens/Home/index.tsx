@@ -1,4 +1,4 @@
-import { FlatList } from 'react-native';
+import { ActivityIndicator, FlatList } from 'react-native';
 import { Control, FieldValues, useForm } from 'react-hook-form';
 import { useNavigation } from '@react-navigation/native';
 
@@ -11,8 +11,11 @@ import {
   Content,
   Title,
 } from './styles';
+import { usePokemon } from '../../context/pokemon/hook';
 
 export function Home() {
+  const { pokemon, loading } = usePokemon();
+  
   const navigation = useNavigation();
 
   function handleOpenDetails() {
@@ -28,6 +31,8 @@ export function Home() {
 
   const formControll = control as unknown as Control<FieldValues, any>;
 
+  console.log('aqui', pokemon);
+
   return (
     <Container>
       <Header />
@@ -41,20 +46,22 @@ export function Home() {
           placeholder="Search Pokémon"
         />
 
-        <FlatList
-          data={[1, 2, 3, 4, 5, 6]}
-          keyExtractor={item => String(item)}
-          showsVerticalScrollIndicator={false}
-          numColumns={2}
-          contentContainerStyle={{
-            flexDirection: 'column'
-          }}
-          renderItem={() => (
-            <Card
-              onPress={handleOpenDetails}
-            />
-          )}
-        />
+        {loading ? <ActivityIndicator /> :
+          <FlatList
+            data={pokemon.pokemon_v2_pokemon}
+            keyExtractor={item => String(item.id)}
+            showsVerticalScrollIndicator={false}
+            numColumns={2}
+            contentContainerStyle={{
+              flexDirection: 'column'
+            }}
+            renderItem={() => (
+              <Card
+                onPress={handleOpenDetails}
+              />
+            )}
+          />
+        }
       </Content>
       
     </Container>
