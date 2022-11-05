@@ -17,7 +17,7 @@ import {
   DetailInfoValue,
 } from './styles';
 
-export function PokemonDetails() {
+export function Details() {
   const { colors } = useTheme();
   const navigation = useNavigation();
 

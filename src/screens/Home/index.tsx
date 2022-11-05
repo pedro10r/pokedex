@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import { Header } from '@components/Header';
 import { Input } from '@components/Input';
-import { PokeCard } from '@components/PokeCard';
+import { Card } from '@components/Card';
 
 import {
   Container,
@@ -15,8 +15,8 @@ import {
 export function Home() {
   const navigation = useNavigation();
 
-  function handleOpenPokemonDetails() {
-    navigation.navigate('pokemon_details');
+  function handleOpenDetails() {
+    navigation.navigate('details');
   }
 
   const { 
@@ -50,8 +50,8 @@ export function Home() {
             flexDirection: 'column'
           }}
           renderItem={() => (
-            <PokeCard
-              onPress={handleOpenPokemonDetails}
+            <Card
+              onPress={handleOpenDetails}
             />
           )}
         />

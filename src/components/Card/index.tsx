@@ -14,7 +14,7 @@ import {
 
 type Props = TouchableOpacityProps & {}
 
-export function PokeCard({ ...rest }: Props) {
+export function Card({ ...rest }: Props) {
   return (
     <Container
       activeOpacity={0.7}

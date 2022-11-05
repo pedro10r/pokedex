@@ -1,9 +1,7 @@
 import styled from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
 
-export const Container = styled.View`
-  flex: 1;
-`;
+export const Container = styled.View``;
 
 export const StatsHeader = styled.View`
   width: 100%;
@@ -13,7 +11,6 @@ export const StatsHeader = styled.View`
   justify-content: space-between;
 
   margin-top: 20px;
-  margin-bottom: 10px;
 `;
 
 export const GenderTitle = styled.Text`
@@ -67,6 +64,8 @@ export const Value = styled.Text`
   font-family: ${({ theme }) => theme.fonts.normal};
   font-size: ${RFValue(12)}px;
   color: ${({ theme }) => theme.colors.primary};
+
+  margin-right: 10px;
 `;
 
 export const Percent = styled.View`
