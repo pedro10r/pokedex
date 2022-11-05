@@ -13,9 +13,7 @@ import {
   TitleStats,
   ValueStats,
   Value,
-  Percent,
 } from './styles';
-import { useEffect } from 'react';
 
 export function Stats() {
 

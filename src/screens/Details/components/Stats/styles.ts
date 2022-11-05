@@ -67,11 +67,3 @@ export const Value = styled.Text`
 
   margin-right: 10px;
 `;
-
-export const Percent = styled.View`
-  width: 94px;
-  height: 5px;
-  background-color: #B7B7B8;
-  border-radius: 50%;
-  margin-left: 5px;
-`;
