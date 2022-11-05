@@ -1,2 +1,2 @@
-import { PokemonProvider } from './context';
+export { PokemonProvider } from './context';
 export { usePokemon } from './hook';

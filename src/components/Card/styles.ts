@@ -54,9 +54,11 @@ export const PokemonImage = styled.Image`
 `;
 
 export const PokemonName = styled.Text`
+  width: 100%;
   font-family: ${({ theme }) => theme.fonts.bold};
-  font-size: ${RFValue(20)}px;
+  font-size: ${RFValue(19)}px;
   color: ${({ theme }) => theme.colors.white};
+  text-align: center;
 `;
 
 export const Habilities = styled.View`

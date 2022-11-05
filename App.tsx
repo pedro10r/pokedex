@@ -11,8 +11,8 @@ import {
 
 import { Routes } from './src/routes';
 
-import { PokemonProvider } from './src/context/pokemon/context';
 import { theme } from './src/styles/themes/default';
+import { PokemonProvider } from './src/context/pokemon';
 import { client } from './src/services/apollo';
 
 export default function App() {

@@ -6,20 +6,21 @@ import { Header } from '@components/Header';
 import { Input } from '@components/Input';
 import { Card } from '@components/Card';
 
+import { usePokemon } from '../../context/pokemon';
+
 import {
   Container,
   Content,
   Title,
 } from './styles';
-import { usePokemon } from '../../context/pokemon/hook';
 
 export function Home() {
   const { pokemon, loading } = usePokemon();
   
   const navigation = useNavigation();
 
-  function handleOpenDetails() {
-    navigation.navigate('details');
+  function handleOpenDetails(id: number) {
+    navigation.navigate('details', { id });
   }
 
   const { 
@@ -55,9 +56,10 @@ export function Home() {
             contentContainerStyle={{
               flexDirection: 'column'
             }}
-            renderItem={() => (
+            renderItem={({ item }) => (
               <Card
-                onPress={handleOpenDetails}
+                data={item}
+                onPress={() => handleOpenDetails(item.id)}
               />
             )}
           />
