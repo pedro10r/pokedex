@@ -10,8 +10,8 @@ export const Container = styled.View`
   margin-bottom: 15px;
 
   width: 100%;
-  height: 52px;
-  padding: 16px;
+  height: 48px;
+  padding: 0 8px 0 10px;
   
   background-color: ${({ theme }) => theme.colors.white};
   

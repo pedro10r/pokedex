@@ -45,7 +45,7 @@ export const Bubble = styled.View`
   justify-content: center;
 
   background-color: #71E5C9;
-  border-radius: 67.5px;
+  border-radius: 100px;
 `;
 
 export const PokemonImage = styled.Image`
@@ -70,7 +70,7 @@ export const Hability = styled.View`
   margin-top: 5px;
 
   background-color: #45C0A3;
-  border-radius: 50%;
+  border-radius: 100px;
 `;
 
 export const HabilityText = styled.Text`

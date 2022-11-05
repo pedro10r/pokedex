@@ -1,5 +1,6 @@
+import styled, { css } from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
-import styled from 'styled-components/native';
+import { Platform } from 'react-native';
 
 export const Container = styled.View`
   width: 100%;
@@ -37,7 +38,7 @@ export const PokemonImage = styled.Image`
 `;
 
 export const HeaderInfo = styled.View`
-  margin-right: 40px;
+  margin-right: 30px;
 `;
 
 export const NumberPokedexArea = styled.View`
@@ -63,6 +64,7 @@ export const PokemonName = styled.Text`
   color: ${({ theme }) => theme.colors.white};
 
   margin-bottom: 10px;
+  margin-right: ${Platform.OS === 'android' ? 5 : 2}px;
 `;
 
 export const Habilities = styled.View`
@@ -74,7 +76,7 @@ export const Hability = styled.View`
   padding: 4px 10px;
 
   background-color: #45C0A3;
-  border-radius: 50%;
+  border-radius: 100px;
 `;
 
 export const HabilityText = styled.Text`

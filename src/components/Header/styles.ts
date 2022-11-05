@@ -1,10 +1,11 @@
 import styled from 'styled-components/native';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import { ArrowLeft } from 'phosphor-react-native';
+import { Platform } from 'react-native';
 
 export const Container = styled.View`
   width: 100%;
-  height: ${getStatusBarHeight() + 93}px;
+  height: ${Platform.OS === 'ios' ? getStatusBarHeight() + 93 : getStatusBarHeight() + 73}px;
 
   background-color: ${({ theme }) => theme.colors.primary};
 
@@ -15,8 +16,8 @@ export const Container = styled.View`
   padding-top: 30px;
   padding-left: 15px;
 
-  border-bottom-left-radius: 18px;
-  border-bottom-right-radius: 18px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 `;
 
 export const BackButton = styled.TouchableOpacity`

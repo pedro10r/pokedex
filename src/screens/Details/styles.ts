@@ -58,7 +58,7 @@ export const DetailInfoAreaValue = styled.View`
   justify-content: center;
 
   background-color: #45C0A3;
-  border-radius: 50%;
+  border-radius: 100px;
 `;
 
 export const DetailInfoValue = styled.Text`

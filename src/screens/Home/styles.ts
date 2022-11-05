@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
 import { getBottomSpace } from 'react-native-iphone-x-helper';
 import { RFValue } from 'react-native-responsive-fontsize';
+import { Platform } from 'react-native';
 
 export const Container = styled.View`
   flex: 1;
@@ -11,7 +12,7 @@ export const Container = styled.View`
 export const Content = styled.View`
   flex: 1;
   padding: 20px 15px 0;
-  padding-bottom: ${getBottomSpace()}px;
+  padding-bottom: ${ Platform.OS === 'ios' ? getBottomSpace() : 15}px;
 `;
 
 export const Title = styled.Text`
