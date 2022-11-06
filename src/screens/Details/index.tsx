@@ -1,8 +1,12 @@
+import { useState } from 'react';
 import { useNavigation, useRoute } from '@react-navigation/native';
 
 import { Header } from '@components/Header';
 import { Stats } from './components/Stats';
 import { HeaderDetails } from './components/HeaderDetails';
+import { Load } from '@components/Load';
+
+import { usePokemonDetail } from '@hooks/pokemonDetails';
 
 import {
   Container,
@@ -15,7 +19,6 @@ import {
   DetailInfoAreaValue,
   DetailInfoValue,
 } from './styles';
-import { usePokemonDetail } from '@hooks/pokemonDetails';
 
 type RouteParams = {
   id: string;
@@ -27,55 +30,62 @@ export function Details() {
   const { id } = route.params as RouteParams;
 
   const { data, loading } = usePokemonDetail(parseInt(id));
-
-  console.log('AQUIII', !loading && data.pokemon_v2_pokemonspecies_by_pk);
-
+  
   function handleGoBack() {
     navigation.goBack();
   }
 
+  function formattedText(text: string) {
+    return text.replace(/(\r\n|\n|\r)/gm, "");
+  }
+
   return (
-    <Container>
-      <Header onPress={handleGoBack} />
-      
-      <Content>
-        <HeaderDetails />
-
-        <ContentDetails>
-          <Title>
-            A strange seed was planted on its back at birth. The plant sprouts and grows with this Pokémon.
-          </Title>
-
-          <DetailsGroup>
-            <DetailInfo>
-              <DetailInfoText>Weight:</DetailInfoText>
-
-              <DetailInfoAreaValue>
-                <DetailInfoValue>6.9kg</DetailInfoValue>
-              </DetailInfoAreaValue>
-            </DetailInfo>
-
-            <DetailInfo>
-              <DetailInfoText>Height:</DetailInfoText>
-
-              <DetailInfoAreaValue>
-                <DetailInfoValue>0.7m</DetailInfoValue>
-              </DetailInfoAreaValue>
-            </DetailInfo>
-
-            <DetailInfo>
-              <DetailInfoText>Major Move:</DetailInfoText>
-
-              <DetailInfoAreaValue>
-                <DetailInfoValue>Solar Bean</DetailInfoValue>
-              </DetailInfoAreaValue>
-            </DetailInfo>
-          </DetailsGroup>
-
-          <Stats />
-        </ContentDetails>
-      </Content>
-
-    </Container>
+    <>
+      {loading ? <Load /> : 
+        <Container>
+          <Header onPress={handleGoBack} />
+          
+          <Content>
+            <HeaderDetails
+              data={data!}
+            />
+    
+            <ContentDetails>
+              <Title>
+                {formattedText(data?.pokemon_v2_pokemonspecies_by_pk?.pokemon_v2_pokemonspeciesflavortexts[0]?.flavor_text!)}
+              </Title>
+    
+              <DetailsGroup>
+                <DetailInfo>
+                  <DetailInfoText>Weight:</DetailInfoText>
+    
+                  <DetailInfoAreaValue>
+                    <DetailInfoValue>{data?.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].weight}kg</DetailInfoValue>
+                  </DetailInfoAreaValue>
+                </DetailInfo>
+    
+                <DetailInfo>
+                  <DetailInfoText>Height:</DetailInfoText>
+    
+                  <DetailInfoAreaValue>
+                    <DetailInfoValue>{data?.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].height}kg</DetailInfoValue>
+                  </DetailInfoAreaValue>
+                </DetailInfo>
+    
+                <DetailInfo>
+                  <DetailInfoText>Major Move:</DetailInfoText>
+    
+                  <DetailInfoAreaValue>
+                    <DetailInfoValue>Solar Bean</DetailInfoValue>
+                  </DetailInfoAreaValue>
+                </DetailInfo>
+              </DetailsGroup>
+    
+              <Stats data={data!} />
+            </ContentDetails>
+          </Content>
+        </Container>
+      }
+    </>
   );
 }

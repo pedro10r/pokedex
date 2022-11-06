@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { LOAD_POKEMON_DETAIL } from '../graphQL/queries';
 
 export function usePokemonDetail(id: number) {
-  const { data, loading } = useQuery(LOAD_POKEMON_DETAIL, {
+  const { data, loading } = useQuery<PokemonDetailsDTO>(LOAD_POKEMON_DETAIL, {
     variables: { id }
   })
 

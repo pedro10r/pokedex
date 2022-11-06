@@ -2,6 +2,8 @@ import { Ionicons } from '@expo/vector-icons';
 import { RFValue } from 'react-native-responsive-fontsize';
 import * as Progress from 'react-native-progress';
 
+import { PokemonDetailsDTO } from '@dtos/PokemonDetailsDTO';
+
 import {
   Container,
   StatsHeader,
@@ -15,7 +17,11 @@ import {
   Value,
 } from './styles';
 
-export function Stats() {
+type Props = {
+  data: PokemonDetailsDTO;
+}
+
+export function Stats({ data }: Props) {
 
   function colorPercentageProgress(value: number) {
     if (value > .0 && value < .5) {
@@ -37,6 +43,22 @@ export function Stats() {
     } else {
       return '#53E37E'
     }
+  }
+
+  function calculateTotalStats() {
+    const stats = data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].pokemon_v2_pokemonstats;
+    
+    let array = new Array();
+    
+    stats.forEach((item) => {
+      array.push(item.base_stat);
+    })
+
+    const result =  array.reduce(function(sum, i) {
+      return sum + i;
+    })
+
+    return result;
   }
   
   return (
@@ -65,112 +87,37 @@ export function Stats() {
         </GenderPercent>
       </StatsHeader>
 
+      {data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].pokemon_v2_pokemonstats.map((item) => (
+        <ContentStats key={item.pokemon_v2_stat.name}>
+          <TitleStats>{item.pokemon_v2_stat.name}</TitleStats>
 
-      <ContentStats>
-        <TitleStats>HP</TitleStats>
-
-        <ValueStats>
-          <Value>45</Value>
-          <Progress.Bar
-            progress={45 / 100}
-            width={105}
-            borderWidth={0}
-            unfilledColor='#B7B7B8'
-            color={colorPercentageProgress(45 / 100)}
-          />
-        </ValueStats>
-      </ContentStats>
-
-      <ContentStats>
-        <TitleStats>Attack</TitleStats>
-
-        <ValueStats>
-          <Value>49</Value>
-          <Progress.Bar
-            progress={49 / 100}
-            width={105}
-            borderWidth={0}
-            unfilledColor='#B7B7B8'
-            color={colorPercentageProgress(49 / 100)}
-          />
-        </ValueStats>
-      </ContentStats>
-
-      <ContentStats>
-        <TitleStats>Defense</TitleStats>
-
-        <ValueStats>
-          <Value>49</Value>
-          <Progress.Bar
-            progress={49 / 100}
-            width={105}
-            borderWidth={0}
-            unfilledColor='#B7B7B8'
-            color={colorPercentageProgress(49 / 100)}
-          />
-        </ValueStats>
-      </ContentStats>
-
-      <ContentStats>
-        <TitleStats>Spaecial Attack</TitleStats>
-
-        <ValueStats>
-          <Value>65</Value>
-          <Progress.Bar
-            progress={65 / 100}
-            width={105}
-            borderWidth={0}
-            unfilledColor='#B7B7B8'
-            color={colorPercentageProgress(65 / 100)}
-          />
-        </ValueStats>
-      </ContentStats>
-
-      <ContentStats>
-        <TitleStats>Special Defense</TitleStats>
-
-        <ValueStats>
-          <Value>65</Value>
-          <Progress.Bar
-            progress={.65}
-            width={105}
-            borderWidth={0}
-            unfilledColor='#B7B7B8'
-            color={colorPercentageProgress(65 / 100)}
-          />
-        </ValueStats>
-      </ContentStats>
-
-      <ContentStats>
-        <TitleStats>Speed</TitleStats>
-
-        <ValueStats>
-          <Value>45</Value>
-          <Progress.Bar
-            progress={.45}
-            width={105}
-            borderWidth={0}
-            unfilledColor='#B7B7B8'
-            color={colorPercentageProgress(45 / 100)}
-          />
-        </ValueStats>
-      </ContentStats>
+          <ValueStats>
+            <Value>{item.base_stat.toString()}</Value>
+            <Progress.Bar
+              progress={item.base_stat / 100}
+              width={105}
+              borderWidth={0}
+              unfilledColor='#B7B7B8'
+              color={colorPercentageProgress(item.base_stat / 100)}
+            />
+          </ValueStats>
+        </ContentStats>
+      ))}
 
       <ContentStats>
         <TitleStats>Total</TitleStats>
 
         <ValueStats>
-          <Value>318</Value>
+          <Value>{calculateTotalStats()}</Value>
           <Progress.Bar
-            progress={318 / 600 * 100 / 100}
+            progress={calculateTotalStats() / 600 * 100 / 100}
             width={105}
             borderWidth={0}
             unfilledColor='#B7B7B8'
-            color={colorPercentageProgressTotal(318)}
+            color={colorPercentageProgressTotal(calculateTotalStats())}
           />
         </ValueStats>
       </ContentStats>
-
     </Container>
   );
 }

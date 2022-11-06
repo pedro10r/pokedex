@@ -33,8 +33,8 @@ export const Bubble = styled.View`
 `;
 
 export const PokemonImage = styled.Image`
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
 `;
 
 export const HeaderInfo = styled.View`

@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 export const LOAD_POKEMONS = gql`
   query Pokemons {
-    pokemon_v2_pokemon(limit: 10) {
+    pokemon_v2_pokemon(limit: 250) {
       id
       name
       pokemon_v2_pokemontypes {
@@ -35,10 +35,13 @@ export const LOAD_POKEMON_DETAIL = gql`
           }
         }
       }
-      pokemon_v2_pokemonspeciesflavortexts(limit: 1) {
-        flavor_text
-        id
-      }
+      pokemon_v2_pokemonspeciesflavortexts(
+          where: { language_id: { _eq: 9 } }
+          order_by: { version_id: asc }
+          limit: 1
+        ) {
+          flavor_text
+        }
       pokemon_v2_pokemoncolor {
         name
       }
