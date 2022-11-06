@@ -12,12 +12,15 @@ import {
   Hability,
   HabilityText,
 } from './styles';
+import { usePokemonSprites } from '@hooks/pokemonSprites';
 
 type Props = TouchableOpacityProps & {
   data: PokemonInfoDTO;
 }
 
 export function Card({ data, ...rest }: Props) {
+  const { imagePng } = usePokemonSprites(String(data.id));
+
   return (
     <Container
       activeOpacity={0.7}
@@ -28,7 +31,7 @@ export function Card({ data, ...rest }: Props) {
       </NumberPokedexArea>
 
       <Bubble>
-        <PokemonImage source={{ uri: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png' }} />
+        <PokemonImage source={{ uri: imagePng }} />
       </Bubble>
       
       <PokemonName>{data.name}</PokemonName>
