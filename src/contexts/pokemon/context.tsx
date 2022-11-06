@@ -2,7 +2,7 @@ import React, { createContext } from "react";
 import { useQuery } from "@apollo/client";
 
 import { LOAD_POKEMONS } from "../../graphQL/queries";
-import { PokemonDTO } from '../../dtos/PokemonDTO';
+import { PokemonDTO } from '@dtos/PokemonDTO';
 
 type PokemonContextData = {
   pokemon: PokemonDTO;

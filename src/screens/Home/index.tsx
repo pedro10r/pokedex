@@ -1,12 +1,13 @@
-import { ActivityIndicator, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 import { Control, FieldValues, useForm } from 'react-hook-form';
 import { useNavigation } from '@react-navigation/native';
 
 import { Header } from '@components/Header';
 import { Input } from '@components/Input';
 import { Card } from '@components/Card';
+import { Load } from '@components/Load';
 
-import { usePokemon } from '../../context/pokemon';
+import { usePokemon } from '@contexts/pokemon';
 
 import {
   Container,
@@ -32,8 +33,6 @@ export function Home() {
 
   const formControll = control as unknown as Control<FieldValues, any>;
 
-  console.log('aqui', pokemon);
-
   return (
     <Container>
       <Header />
@@ -47,7 +46,7 @@ export function Home() {
           placeholder="Search Pokémon"
         />
 
-        {loading ? <ActivityIndicator /> :
+        {loading ? <Load /> :
           <FlatList
             data={pokemon.pokemon_v2_pokemon}
             keyExtractor={item => String(item.id)}

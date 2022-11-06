@@ -42,8 +42,8 @@ export function Card({ data, ...rest }: Props) {
       <PokemonName>{data.name}</PokemonName>
 
       <Habilities>
-        {data.pokemon_v2_pokemontypes.map((item) => (
-          <Hability key={item.name}>
+        {data.pokemon_v2_pokemontypes.map((item, index) => (
+          <Hability key={index}>
             <HabilityText>{item.pokemon_v2_type.name}</HabilityText>
           </Hability>
         ))}

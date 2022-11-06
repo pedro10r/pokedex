@@ -1,4 +1,4 @@
-export type PokemonDTO = {
+export type PokemonDetailsDTO = {
   pokemon_v2_pokemon: [
     {
       height: number;

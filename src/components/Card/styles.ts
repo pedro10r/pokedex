@@ -69,7 +69,7 @@ export const Habilities = styled.View`
 
 export const Hability = styled.View`
   padding: 4px 10px;
-  margin-top: 5px;
+  margin-top: 7px;
 
   background-color: #45C0A3;
   border-radius: 100px;
@@ -79,4 +79,5 @@ export const HabilityText = styled.Text`
   font-family: ${({ theme }) => theme.fonts.regular};
   font-size: ${RFValue(12)}px;
   color: ${({ theme }) => theme.colors.white};
+  text-align: center;
 `;

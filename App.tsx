@@ -1,4 +1,3 @@
-import { ActivityIndicator } from 'react-native';
 import { ThemeProvider } from 'styled-components/native';
 import { ApolloProvider } from '@apollo/client';
 
@@ -11,9 +10,11 @@ import {
 
 import { Routes } from './src/routes';
 
+import { PokemonProvider } from '@contexts/pokemon';
 import { theme } from './src/styles/themes/default';
-import { PokemonProvider } from './src/context/pokemon';
 import { client } from './src/services/apollo';
+
+import { Load } from '@components/Load';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -26,7 +27,7 @@ export default function App() {
     <ApolloProvider client={client}>
       <PokemonProvider>
         <ThemeProvider theme={theme}>
-          {fontsLoaded ? <Routes /> : <ActivityIndicator />}
+          {fontsLoaded ? <Routes /> : <Load />}
         </ThemeProvider>
       </PokemonProvider>
     </ApolloProvider>

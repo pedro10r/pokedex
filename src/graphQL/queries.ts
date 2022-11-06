@@ -15,8 +15,8 @@ export const LOAD_POKEMONS = gql`
 `;
 
 export const LOAD_POKEMON_DETAIL = gql`
-  query PokemonDetail {
-    pokemon_v2_pokemon(limit: 10) {
+  query PokemonDetails($id: Int!) {
+    pokemon_v2_pokemon(id: $id) {
       id
       name
       height
