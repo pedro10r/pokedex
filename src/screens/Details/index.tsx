@@ -1,5 +1,4 @@
-import { useNavigation } from '@react-navigation/native';
-import { useTheme } from 'styled-components';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 import { Header } from '@components/Header';
 import { Stats } from './components/Stats';
@@ -16,10 +15,20 @@ import {
   DetailInfoAreaValue,
   DetailInfoValue,
 } from './styles';
+import { usePokemonDetail } from '@hooks/pokemonDetails';
+
+type RouteParams = {
+  id: string;
+}
 
 export function Details() {
-  const { colors } = useTheme();
   const navigation = useNavigation();
+  const route = useRoute();
+  const { id } = route.params as RouteParams;
+
+  const { data, loading } = usePokemonDetail(parseInt(id));
+
+  console.log('AQUIII', !loading && data.pokemon_v2_pokemonspecies_by_pk);
 
   function handleGoBack() {
     navigation.goBack();
