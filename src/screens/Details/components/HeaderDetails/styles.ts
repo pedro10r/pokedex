@@ -48,7 +48,7 @@ export const NumberPokedexArea = styled.View`
   padding: 4px 8px;
   margin-bottom: 10px;
 
-  background-color: #FFCB05;
+  background-color: ${({ theme }) => theme.colors.warning};
   border-radius: 20px;
 `;
 

@@ -1,98 +1,109 @@
+import { useTheme } from "styled-components"
+
+/* 
+  This function returns a dark color if the pokemon is based on the white color.
+*/
 export function isWhiteColor(color: string) {
   if (color === 'white') {
-    return '#302F2F'
+    return '#302F2F';
   }
 }
 
+/* 
+  The return of the colors will always be those listed, 
+  with a total of 10, and for each color, 3 colors are returned.
+*/
 export function usePokemonColor(color: string) {
+  const { colors } = useTheme();
+
   switch (color) {
     case 'black':
       return {
         colors: {
-          primary: '#4C4C4C',
-          secondary: '#8A8A8A',
-          support: '#302F2F'
+          primary: colors.black_100,
+          secondary: colors.black_200,
+          support: colors.black_300
         }
       }
 
     case 'blue':
       return {
         colors: {
-          primary: '#77BDFE',
-          secondary: '#A8D5FF',
-          support: '#5AA2E5'
+          primary: colors.blue_100,
+          secondary: colors.blue_200,
+          support: colors.blue_300
         }
       }
 
     case 'brown':
       return {
         colors: {
-          primary: '#583E3E',
-          secondary: '#544A4A',
-          support: '#5C3232'
+          primary: colors.brown_100,
+          secondary: colors.brown_200,
+          support: colors.brown_300
         }
       }
 
     case 'gray':
       return {
         colors: {
-          primary: '#85929E',
-          secondary: '#AEB6BF',
-          support: '#5D6D7E'
+          primary: colors.gray_100,
+          secondary: colors.gray_200,
+          support: colors.gray_300
         }
       }
 
     case 'green':
       return {
         colors: {
-          primary: '#48D0B0',
-          secondary: '#71E5C9',
-          support: '#45C0A3'
+          primary: colors.green_100,
+          secondary: colors.green_200,
+          support: colors.green_300
         }
       }
 
     case 'pink':
       return {
         colors: {
-          primary: '#FF97EB',
-          secondary: '#FDB8EF',
-          support: '#FF79E5'
+          primary: colors.pink_100,
+          secondary: colors.pink_200,
+          support: colors.pink_300,
         }
       }
 
     case 'purple':
       return {
         colors: {
-          primary: '#BB8FCE',
-          secondary: '#D2B4DE',
-          support: '#A569BD'
+          primary: colors.purple_100,
+          secondary: colors.purple_200,
+          support: colors.purple_300
         }
       }
 
     case 'red':
       return {
         colors: {
-          primary: '#FB6C6C',
-          secondary: '#FEA1A1',
-          support: '#EA6464'
+          primary: colors.red_100,
+          secondary: colors.red_200,
+          support: colors.red_300,
         }
       }
 
     case 'white':
       return {
         colors: {
-          primary: '#E9E9E9',
-          secondary: '#F2F4F5',
-          support: '#C8C8C8'
+          primary: colors.white_100,
+          secondary: colors.white_200,
+          support: colors.white_300
         }
       }
 
     case 'yellow':
       return {
         colors: {
-          primary: '#F7DC6F',
-          secondary: '#F9E79F',
-          support: '#F4D03F'
+          primary: colors.yellow_100,
+          secondary: colors.yellow_200,
+          support: colors.yellow_300,
         }
       }
 

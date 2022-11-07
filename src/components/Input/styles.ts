@@ -16,13 +16,13 @@ export const Container = styled.View`
   background-color: ${({ theme }) => theme.colors.white};
   
   border-width: 1px;
-  border-color: #3663AD;
+  border-color: ${({ theme }) => theme.colors.input_details};
   border-radius: 50px;
 `;
 
 export const IconSearch = styled(MagnifyingGlass).attrs(({ theme }) => ({
   size: 24,
-  color: '#3663AD',
+  color: theme.colors.input_details,
 }))`
   margin-right: 12px;
 `;
@@ -38,7 +38,7 @@ export const ButtonSearch = styled.TouchableOpacity``;
 
 export const Icon = styled(ArrowCircleRight).attrs(({ theme }) => ({
   size: 32,
-  color: '#395BA7',
+  color: theme.colors.input_icon,
   weight: 'fill'
 }))`
   margin-left: 12px;

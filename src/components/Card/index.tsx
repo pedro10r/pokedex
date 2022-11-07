@@ -47,8 +47,8 @@ export function Card({ data, ...rest }: Props) {
         {/* In case of use SVG */}
         {/* <SvgUri
           uri={imageSvg}
-          width={120}
-          height={120}
+          width={130}
+          height={130}
         /> */}
       </Bubble>
       

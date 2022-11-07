@@ -1,4 +1,5 @@
 import { TextInputProps } from 'react-native';
+import { useTheme } from 'styled-components';
 
 import {
   Container,
@@ -13,12 +14,14 @@ interface InputProps extends TextInputProps {
 }
 
 export function Input({ onPress, ...rest }: InputProps) {
+  const { colors } = useTheme();
+
   return (
     <Container>
       <IconSearch />
 
       <InputText
-        placeholderTextColor={'#909bb6'}
+        placeholderTextColor={colors.blue_400}
         {...rest}
       />
 

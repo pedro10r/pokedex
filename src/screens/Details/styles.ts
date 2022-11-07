@@ -49,7 +49,7 @@ export const DetailInfo = styled.View``;
 export const DetailInfoText = styled.Text`
   font-family: ${({ theme }) => theme.fonts.regular};
   font-size: ${RFValue(11.5)}px;
-  color: #395BA7;
+  color: ${({ theme }) => theme.colors.input_icon};
   text-align: center;
 
   margin-bottom: 4px;
