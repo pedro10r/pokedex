@@ -1,5 +1,4 @@
 import { TextInputProps } from 'react-native';
-import { Control, Controller } from 'react-hook-form';
 
 import {
   Container,
@@ -10,30 +9,20 @@ import {
 } from './styles';
 
 interface InputProps extends TextInputProps {
-  control: Control;
-  name: string;
-  isError?: boolean;
+  onPress?: () => void;
 }
 
-export function Input({ control, name, ...rest }: InputProps) {
+export function Input({ onPress, ...rest }: InputProps) {
   return (
     <Container>
       <IconSearch />
 
-      <Controller
-        control={control}
-        name={name}
-        render={({ field: { value, onChange }}) => (
-          <InputText
-            placeholderTextColor={'#909bb6'}
-            value={value}
-            onChangeText={onChange}
-            {...rest}
-          />
-        )}
+      <InputText
+        placeholderTextColor={'#909bb6'}
+        {...rest}
       />
 
-      <ButtonSearch>
+      <ButtonSearch onPress={onPress}>
         <Icon />
       </ButtonSearch>
     </Container>

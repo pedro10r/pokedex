@@ -1,5 +1,5 @@
-import { FlatList } from 'react-native';
-import { Control, FieldValues, useForm } from 'react-hook-form';
+import { useState } from 'react';
+import { FlatList, Keyboard, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import { Header } from '@components/Header';
@@ -16,57 +16,55 @@ import {
 } from './styles';
 
 export function Home() {
-  const { pokemon, loading } = usePokemon();
-  
+  const [search, setSearch] = useState('');
   const navigation = useNavigation();
+  
+  const { pokemons, loading } = usePokemon();
+  
+  const filteredPokemons = search.length > 0
+  ? pokemons.pokemon_v2_pokemon.filter(
+      pokemon => pokemon.name.toLowerCase().includes(search.toLowerCase())
+    )
+  : [];
 
   function handleOpenDetails(id: number) {
     navigation.navigate('details', { id });
   }
 
-  console.log('AQUI', !loading && pokemon.pokemon_v2_pokemon[8].pokemon_v2_pokemonspecy.pokemon_v2_pokemoncolor.name);
-
-  const { 
-    control,
-    handleSubmit,
-    formState: { errors },
-    clearErrors
-  } = useForm<FormData>();
-
-  const formControll = control as unknown as Control<FieldValues, any>;
-
   return (
-    <Container>
-      <Header />
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <Container>
+        <Header />
 
-      <Content>
-        <Title>More than 250 Pokemons for you to choose your favorite</Title>
+        <Content>
+          <Title>More than 250 Pokemons for you to choose your favorite</Title>
 
-        <Input
-          name="search"
-          control={formControll}
-          placeholder="Search Pokémon"
-        />
-
-        {loading ? <Load /> :
-          <FlatList
-            data={pokemon.pokemon_v2_pokemon}
-            keyExtractor={item => String(item.id)}
-            showsVerticalScrollIndicator={false}
-            numColumns={2}
-            contentContainerStyle={{
-              flexDirection: 'column'
-            }}
-            renderItem={({ item }) => (
-              <Card
-                data={item}
-                onPress={() => handleOpenDetails(item.id)}
-              />
-            )}
+          <Input
+            placeholder="Search Pokémon"
+            onChangeText={setSearch} // implemented a dynamic list filter, just type to return
+            value={search}
+            onPress={() => {}}
           />
-        }
-      </Content>
-      
-    </Container>
+
+          {loading ? <Load /> :
+            <FlatList
+              data={search.length > 0 ? filteredPokemons : pokemons.pokemon_v2_pokemon}
+              keyExtractor={item => String(item.id)}
+              showsVerticalScrollIndicator={false}
+              numColumns={2}
+              contentContainerStyle={{
+                flexDirection: 'column'
+              }}
+              renderItem={({ item }) => (
+                <Card
+                  data={item}
+                  onPress={() => handleOpenDetails(item.id)}
+                />
+              )}
+            />
+          }
+        </Content>
+      </Container>
+    </TouchableWithoutFeedback>
   );
 }
