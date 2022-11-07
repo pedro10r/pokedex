@@ -1,3 +1,9 @@
+export function isWhiteColor(color: string) {
+  if (color === 'white') {
+    return '#302F2F'
+  }
+}
+
 export function usePokemonColor(color: string) {
   switch (color) {
     case 'black':

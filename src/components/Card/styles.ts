@@ -1,6 +1,10 @@
 import styled from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
 
+type Props = {
+  color?: string;
+}
+
 export const Container = styled.TouchableOpacity`
   width: 48%;
   height: 235px;
@@ -45,15 +49,15 @@ export const Bubble = styled.View`
 `;
 
 export const PokemonImage = styled.Image`
-  width: 115px;
-  height: 115px;
+  width: 140px;
+  height: 140px;
 `;
 
-export const PokemonName = styled.Text`
+export const PokemonName = styled.Text<Props>`
   width: 100%;
   font-family: ${({ theme }) => theme.fonts.bold};
   font-size: ${RFValue(19)}px;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme, color }) => color ? color : theme.colors.white};
   text-align: center;
 `;
 
@@ -70,9 +74,9 @@ export const Hability = styled.View`
   border-radius: 100px;
 `;
 
-export const HabilityText = styled.Text`
+export const HabilityText = styled.Text<Props>`
   font-family: ${({ theme }) => theme.fonts.regular};
   font-size: ${RFValue(12)}px;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme, color }) => color ? color : theme.colors.white};
   text-align: center;
 `;

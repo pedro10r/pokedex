@@ -6,6 +6,7 @@ import { HeaderDetails } from './components/HeaderDetails';
 import { Load } from '@components/Load';
 
 import { usePokemonDetail } from '@hooks/pokemonDetails';
+import { usePokemonColor, isWhiteColor } from '@hooks/pokemonColors';
 
 import {
   Container,
@@ -18,7 +19,6 @@ import {
   DetailInfoAreaValue,
   DetailInfoValue,
 } from './styles';
-import { usePokemonColor } from '@hooks/pokemonColors';
 
 type RouteParams = {
   id: string;
@@ -31,13 +31,15 @@ export function Details() {
 
   const { data, loading } = usePokemonDetail(parseInt(id));
 
-  const { colors } = usePokemonColor(data?.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemoncolor.name!);
+  const colorName = data?.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemoncolor.name!;
+  const { colors } = usePokemonColor(colorName);
   
   function handleGoBack() {
     navigation.goBack();
   }
 
   function formattedText(text: string) {
+    // Line break remover
     return text.replace(/(\r\n|\n|\r)/gm, "");
   }
 
@@ -48,6 +50,7 @@ export function Details() {
           
         {loading ? <Load /> : 
           <Content>
+
             <HeaderDetails
               data={data!}
             />
@@ -62,7 +65,9 @@ export function Details() {
                   <DetailInfoText>Weight:</DetailInfoText>
     
                   <DetailInfoAreaValue style={{ backgroundColor: colors?.primary }}>
-                    <DetailInfoValue>{data?.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].weight}kg</DetailInfoValue>
+                    <DetailInfoValue color={isWhiteColor(colorName)}>
+                      {data?.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].weight}kg
+                    </DetailInfoValue>
                   </DetailInfoAreaValue>
                 </DetailInfo>
     
@@ -70,7 +75,9 @@ export function Details() {
                   <DetailInfoText>Height:</DetailInfoText>
     
                   <DetailInfoAreaValue style={{ backgroundColor: colors?.primary }}>
-                    <DetailInfoValue>{data?.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].height}m</DetailInfoValue>
+                    <DetailInfoValue color={isWhiteColor(colorName)}>
+                      {data?.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].height}m
+                    </DetailInfoValue>
                   </DetailInfoAreaValue>
                 </DetailInfo>
     
@@ -78,12 +85,15 @@ export function Details() {
                   <DetailInfoText>Major Move:</DetailInfoText>
     
                   <DetailInfoAreaValue style={{ backgroundColor: colors?.primary }}>
-                    <DetailInfoValue>Solar Bean</DetailInfoValue>
+                    <DetailInfoValue color={isWhiteColor(colorName)}>
+                      Solar Bean
+                    </DetailInfoValue>
                   </DetailInfoAreaValue>
                 </DetailInfo>
               </DetailsGroup>
     
               <Stats data={data!} />
+
             </ContentDetails>
           </Content>
         }

@@ -2,6 +2,10 @@ import styled, { css } from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { Platform } from 'react-native';
 
+type Props = {
+  color?: string;
+}
+
 export const Bubble = styled.View`
   position: absolute;
   z-index: 100;
@@ -16,7 +20,7 @@ export const Bubble = styled.View`
   justify-content: center;
   
   border-radius: 75px;
-  `;
+`;
 
 export const Container = styled.View`
   width: 100%;
@@ -56,10 +60,10 @@ export const NumberPokedex = styled.Text`
   text-align: center;
 `;
 
-export const PokemonName = styled.Text`
+export const PokemonName = styled.Text<Props>`
   font-family: ${({ theme }) => theme.fonts.bold};
   font-size: ${RFValue(24)}px;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme, color }) => color ? color : theme.colors.white};
 
   margin-bottom: 10px;
   margin-right: ${Platform.OS === 'android' ? 5 : 2}px;
@@ -78,8 +82,8 @@ export const Hability = styled.View`
   border-radius: 100px;
 `;
 
-export const HabilityText = styled.Text`
+export const HabilityText = styled.Text<Props>`
   font-family: ${({ theme }) => theme.fonts.regular};
   font-size: ${RFValue(13)}px;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme, color }) => color ? color : theme.colors.white};
 `;

@@ -2,6 +2,10 @@ import styled from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { getBottomSpace } from 'react-native-iphone-x-helper';
 
+type Props = {
+  color?: string;
+}
+
 export const Container = styled.View`
   flex: 1;
 
@@ -60,8 +64,8 @@ export const DetailInfoAreaValue = styled.View`
   border-radius: 100px;
 `;
 
-export const DetailInfoValue = styled.Text`
+export const DetailInfoValue = styled.Text<Props>`
   font-family: ${({ theme }) => theme.fonts.bold};
   font-size: ${RFValue(13)}px;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme, color }) => color ? color : theme.colors.white};
 `;

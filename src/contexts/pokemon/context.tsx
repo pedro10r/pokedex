@@ -5,7 +5,7 @@ import { LOAD_POKEMONS } from "../../graphQL/queries";
 import { PokemonDTO } from '@dtos/PokemonDTO';
 
 type PokemonContextData = {
-  pokemons: PokemonDTO | undefined;
+  pokemons: PokemonDTO;
   loading: boolean;
 }
 
@@ -16,7 +16,7 @@ interface PokemonProviderProps {
 export const PokemonContext = createContext<PokemonContextData>({} as PokemonContextData);
 
 export const PokemonProvider = ({ children }: PokemonProviderProps) => {
-  const { data, loading } = useQuery<PokemonDTO>(LOAD_POKEMONS);
+  const { data, loading } = useQuery(LOAD_POKEMONS);
 
   return (
     <PokemonContext.Provider
