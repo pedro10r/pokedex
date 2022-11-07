@@ -32,6 +32,7 @@ export const InputText = styled.TextInput`
 
   font-size: ${RFValue(16)}px;
   font-family: ${({ theme }) => theme.fonts.regular};
+  color: ${({ theme }) => theme.colors.primary};
 `;
 
 export const ButtonSearch = styled.TouchableOpacity``;
