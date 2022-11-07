@@ -4,6 +4,7 @@ import * as Progress from 'react-native-progress';
 import { useTheme } from 'styled-components';
 
 import { PokemonDetailsDTO } from '@dtos/PokemonDetailsDTO';
+import { capitalized } from '../../../../utils/capitalized';
 
 import {
   Container,
@@ -78,7 +79,7 @@ export function Stats({ data }: Props) {
 
       {data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].pokemon_v2_pokemonstats.map((item) => (
         <ContentStats key={item.pokemon_v2_stat.name}>
-          <TitleStats>{item.pokemon_v2_stat.name}</TitleStats>
+          <TitleStats>{capitalized(item.pokemon_v2_stat.name)}</TitleStats>
 
           <ValueStats>
             <Value>{item.base_stat.toString()}</Value>

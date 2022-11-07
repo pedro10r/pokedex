@@ -5,6 +5,7 @@ import { SvgUri } from 'react-native-svg';
 
 import { usePokemonSprites } from '@hooks/pokemonSprites';
 import { usePokemonColor, isWhiteColor } from '@hooks/pokemonColors';
+import { capitalized } from '../../utils/capitalized';
 
 import {
   Container,
@@ -22,9 +23,10 @@ type Props = TouchableOpacityProps & {
   data: PokemonInfoDTO;
 }
 
+
 export function Card({ data, ...rest }: Props) {
   const { imagePng, imageSvg } = usePokemonSprites(String(data.id));
-
+  
   const colorName = data.pokemon_v2_pokemonspecy.pokemon_v2_pokemoncolor.name;
   const { colors } = usePokemonColor(colorName);
 
@@ -53,7 +55,7 @@ export function Card({ data, ...rest }: Props) {
       </Bubble>
       
       <PokemonName color={isWhiteColor(colorName)}>
-        {data.name}
+        {capitalized(data.name)}
       </PokemonName>
 
       <Habilities>
@@ -63,7 +65,7 @@ export function Card({ data, ...rest }: Props) {
             style={{ backgroundColor: colors?.support }}
           >
             <HabilityText color={isWhiteColor(colorName)}>
-              {item.pokemon_v2_type.name}
+              {capitalized(item.pokemon_v2_type.name)}
             </HabilityText>
           </Hability>
         ))}

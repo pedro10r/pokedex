@@ -3,6 +3,7 @@ import { SvgUri } from 'react-native-svg';
 
 import { usePokemonSprites } from '@hooks/pokemonSprites';
 import { usePokemonColor, isWhiteColor } from '@hooks/pokemonColors';
+import { capitalized } from '../../../../utils/capitalized';
 
 import {
   Container,
@@ -52,7 +53,7 @@ export function HeaderDetails({ data }: Props) {
           </NumberPokedexArea>
 
           <PokemonName color={isWhiteColor(colorName)}>
-            {data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].name}
+            {capitalized(data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].name)}
           </PokemonName>
 
           <Habilities>
@@ -62,7 +63,7 @@ export function HeaderDetails({ data }: Props) {
                 style={{ backgroundColor: colors?.support }}
               >
                 <HabilityText color={isWhiteColor(colorName)}>
-                  {item.pokemon_v2_type.name}
+                  {capitalized(item.pokemon_v2_type.name)}
                 </HabilityText>
               </Hability>
             ))}
