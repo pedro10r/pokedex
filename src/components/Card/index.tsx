@@ -1,6 +1,11 @@
 import { TouchableOpacityProps } from 'react-native';
 import { PokemonInfoDTO } from '@dtos/PokemonDTO';
 
+import { SvgUri } from 'react-native-svg';
+
+import { usePokemonSprites } from '@hooks/pokemonSprites';
+import { usePokemonColor } from '@hooks/pokemonColors';
+
 import {
   Container,
   NumberPokedexArea,
@@ -12,16 +17,13 @@ import {
   Hability,
   HabilityText,
 } from './styles';
-import { usePokemonSprites } from '@hooks/pokemonSprites';
-import { usePokemonColor } from '@hooks/pokemonColors';
 
 type Props = TouchableOpacityProps & {
   data: PokemonInfoDTO;
 }
 
-
 export function Card({ data, ...rest }: Props) {
-  const { imagePng } = usePokemonSprites(String(data.id));
+  const { imagePng, imageSvg } = usePokemonSprites(String(data.id));
   const { colors } = usePokemonColor(data.pokemon_v2_pokemonspecy.pokemon_v2_pokemoncolor.name);
 
   return (
@@ -35,7 +37,17 @@ export function Card({ data, ...rest }: Props) {
       </NumberPokedexArea>
 
       <Bubble style={{ backgroundColor: colors?.secondary }}>
-        <PokemonImage source={{ uri: imagePng }} />
+        <PokemonImage
+          resizeMode='contain'
+          source={{ uri: imagePng }}
+        />
+        
+        {/* In case of use SVG */}
+        {/* <SvgUri
+          uri={imageSvg}
+          width={120}
+          height={120}
+        /> */}
       </Bubble>
       
       <PokemonName>{data.name}</PokemonName>
@@ -44,7 +56,7 @@ export function Card({ data, ...rest }: Props) {
         {data.pokemon_v2_pokemontypes.map((item, index) => (
           <Hability
             key={index}
-            style={{ backgroundColor: colors?.suport }}
+            style={{ backgroundColor: colors?.support }}
           >
             <HabilityText>{item.pokemon_v2_type.name}</HabilityText>
           </Hability>

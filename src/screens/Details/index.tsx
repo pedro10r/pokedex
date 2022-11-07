@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useNavigation, useRoute } from '@react-navigation/native';
 
 import { Header } from '@components/Header';
@@ -44,10 +43,10 @@ export function Details() {
 
   return (
     <>
-      {loading ? <Load /> : 
-        <Container>
-          <Header onPress={handleGoBack} />
+      <Container>
+        <Header onPress={handleGoBack} />
           
+        {loading ? <Load /> : 
           <Content>
             <HeaderDetails
               data={data!}
@@ -71,7 +70,7 @@ export function Details() {
                   <DetailInfoText>Height:</DetailInfoText>
     
                   <DetailInfoAreaValue style={{ backgroundColor: colors?.primary }}>
-                    <DetailInfoValue>{data?.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].height}kg</DetailInfoValue>
+                    <DetailInfoValue>{data?.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].height}m</DetailInfoValue>
                   </DetailInfoAreaValue>
                 </DetailInfo>
     
@@ -87,8 +86,8 @@ export function Details() {
               <Stats data={data!} />
             </ContentDetails>
           </Content>
-        </Container>
-      }
+        }
+      </Container>
     </>
   );
 }

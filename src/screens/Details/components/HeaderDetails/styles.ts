@@ -2,32 +2,31 @@ import styled, { css } from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { Platform } from 'react-native';
 
-export const Container = styled.View`
-  width: 100%;
-  height: 150px;
-
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-
-  border-top-left-radius: 18px;
-  border-top-right-radius: 18px;
-`;
-
 export const Bubble = styled.View`
   position: absolute;
   z-index: 100;
   left: 35px;
   top: 33px;
-
+  
   width: 150px;
   height: 150px;
   margin-bottom: 5px;
-
+  
   align-items: center;
   justify-content: center;
-
+  
   border-radius: 75px;
+  `;
+
+export const Container = styled.View`
+  width: 100%;
+  height: 150px;
+
+  align-items: flex-end;
+  justify-content: center;
+
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
 `;
 
 export const PokemonImage = styled.Image`
@@ -36,12 +35,13 @@ export const PokemonImage = styled.Image`
 `;
 
 export const HeaderInfo = styled.View`
-  margin-right: 30px;
+  width: 50%;
+  padding-left: 10px;
+  align-items: flex-start;
 `;
 
 export const NumberPokedexArea = styled.View`
-  width: 60px;
-  padding: 4px;
+  padding: 4px 8px;
   margin-bottom: 10px;
 
   background-color: #FFCB05;
@@ -66,12 +66,14 @@ export const PokemonName = styled.Text`
 `;
 
 export const Habilities = styled.View`
+  width: 90%;
+  padding-right: 15px;
   flex-direction: row;
-  justify-content: space-between
 `;
 
 export const Hability = styled.View`
   padding: 4px 10px;
+  margin-right: 8px;
 
   border-radius: 100px;
 `;

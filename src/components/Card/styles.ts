@@ -16,11 +16,9 @@ export const Container = styled.TouchableOpacity`
 `;
 
 export const NumberPokedexArea = styled.View`
-  width: 62px;
-
   position: absolute;
   top: -10px;
-  padding: 1px;
+  padding: 1px 6px;
 
   background-color: #FFCB05;
   border-radius: 20px;

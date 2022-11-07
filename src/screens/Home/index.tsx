@@ -43,7 +43,8 @@ export function Home() {
             placeholder="Search Pokémon"
             onChangeText={setSearch} // implemented a dynamic list filter, just type to return
             value={search}
-            onPress={() => {}}
+            onPress={() => setSearch}
+            autoCorrect={false}
           />
 
           {loading ? <Load /> :
