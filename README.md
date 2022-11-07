@@ -9,7 +9,7 @@ Depois de clonar o repo, rode `npm install` e para rodar o projeto em sua máqui
 Lista os pokemons, podendo filtrar pelo pokemon que você deseja e ainda pode ver vários detalhes dele.
 
 #### Falando sobre a Flatlist:
-Como as tecnologias não param de se atualizar, não seria diferente com o react native, a FlatList é um componente incrível que nos permite criar listas personalizadas de várias formas, na FlatList não precisamos mais ficar criando loadings para setar paginação, ela por si só analiza a lista renderiza só uma parte dela, quando vai chegando no fim da lista, ela começa a renderizar os outros itens, então ela cuida do processo todo, sem precisarmos nos preocupar com problemas de renderização e performance.
+Como as tecnologias não param de se atualizar, não seria diferente com o react native, a FlatList é um componente incrível que nos permite criar listas personalizadas de várias formas, na FlatList não precisamos mais ficar criando loadings para setar paginação, ela por si só analiza a lista renderiza só uma parte dela, quando vai chegando no fim da lista, ela começa a renderizar os outros itens, então ela cuida do processo praticamente todo. Mas ainda existe alguns itens que ajudam na performance.
 
 #### Tema global com Styled Components:
 É uma das melhores bibliotecas para estilização, se não a melhor. Todas as cores dessa aplicação estão sendo fornecidas pelo tema padrão criado, não só as cores, mas como as fontes também, além de permitir criar tipos para deixar algum componente dinâmico, entre várias outras coisas.
