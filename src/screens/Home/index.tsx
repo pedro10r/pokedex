@@ -24,6 +24,8 @@ export function Home() {
     navigation.navigate('details', { id });
   }
 
+  console.log('AQUI', !loading && pokemon.pokemon_v2_pokemon[8].pokemon_v2_pokemonspecy.pokemon_v2_pokemoncolor.name);
+
   const { 
     control,
     handleSubmit,

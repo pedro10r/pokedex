@@ -19,6 +19,7 @@ import {
   DetailInfoAreaValue,
   DetailInfoValue,
 } from './styles';
+import { usePokemonColor } from '@hooks/pokemonColors';
 
 type RouteParams = {
   id: string;
@@ -30,6 +31,8 @@ export function Details() {
   const { id } = route.params as RouteParams;
 
   const { data, loading } = usePokemonDetail(parseInt(id));
+
+  const { colors } = usePokemonColor(data?.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemoncolor.name!);
   
   function handleGoBack() {
     navigation.goBack();
@@ -59,7 +62,7 @@ export function Details() {
                 <DetailInfo>
                   <DetailInfoText>Weight:</DetailInfoText>
     
-                  <DetailInfoAreaValue>
+                  <DetailInfoAreaValue style={{ backgroundColor: colors?.primary }}>
                     <DetailInfoValue>{data?.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].weight}kg</DetailInfoValue>
                   </DetailInfoAreaValue>
                 </DetailInfo>
@@ -67,7 +70,7 @@ export function Details() {
                 <DetailInfo>
                   <DetailInfoText>Height:</DetailInfoText>
     
-                  <DetailInfoAreaValue>
+                  <DetailInfoAreaValue style={{ backgroundColor: colors?.primary }}>
                     <DetailInfoValue>{data?.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].height}kg</DetailInfoValue>
                   </DetailInfoAreaValue>
                 </DetailInfo>
@@ -75,7 +78,7 @@ export function Details() {
                 <DetailInfo>
                   <DetailInfoText>Major Move:</DetailInfoText>
     
-                  <DetailInfoAreaValue>
+                  <DetailInfoAreaValue style={{ backgroundColor: colors?.primary }}>
                     <DetailInfoValue>Solar Bean</DetailInfoValue>
                   </DetailInfoAreaValue>
                 </DetailInfo>

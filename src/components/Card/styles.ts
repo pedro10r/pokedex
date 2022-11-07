@@ -12,7 +12,6 @@ export const Container = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
 
-  background-color: #48D0B0;
   border-radius: 18px;
 `;
 
@@ -44,7 +43,6 @@ export const Bubble = styled.View`
   align-items: center;
   justify-content: center;
 
-  background-color: #71E5C9;
   border-radius: 100px;
 `;
 
@@ -71,7 +69,6 @@ export const Hability = styled.View`
   padding: 4px 10px;
   margin-top: 7px;
 
-  background-color: #45C0A3;
   border-radius: 100px;
 `;
 

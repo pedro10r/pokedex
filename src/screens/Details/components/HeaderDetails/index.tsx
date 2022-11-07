@@ -15,6 +15,7 @@ import {
   Hability,
   HabilityText,
 } from './styles';
+import { usePokemonColor } from '@hooks/pokemonColors';
 
 type Props = {
   data: PokemonDetailsDTO;
@@ -22,10 +23,11 @@ type Props = {
 
 export function HeaderDetails({ data }: Props) {
   const { imageSvg, imagePng } = usePokemonSprites(data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].id);
+  const { colors } = usePokemonColor(data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemoncolor.name);
 
   return (
      <>
-      <Bubble>
+      <Bubble style={{ backgroundColor: colors?.secondary }}>
         <PokemonImage
           resizeMode="contain"
           source={{ uri: imagePng }}
@@ -39,7 +41,7 @@ export function HeaderDetails({ data }: Props) {
         /> */}
       </Bubble>
 
-      <Container>
+      <Container style={{ backgroundColor: colors?.primary }}>
         <HeaderInfo>
           <NumberPokedexArea>
             <NumberPokedex>#00{data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].id}</NumberPokedex>
@@ -49,7 +51,10 @@ export function HeaderDetails({ data }: Props) {
 
           <Habilities>
             {data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].pokemon_v2_pokemontypes.map((item) => (
-              <Hability key={item.type_id}>
+              <Hability
+                key={item.type_id}
+                style={{ backgroundColor: colors?.support }}
+              >
                 <HabilityText>{item.pokemon_v2_type.name}</HabilityText>
               </Hability>
             ))}

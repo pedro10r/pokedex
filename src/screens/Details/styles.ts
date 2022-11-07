@@ -57,7 +57,6 @@ export const DetailInfoAreaValue = styled.View`
   align-items: center;
   justify-content: center;
 
-  background-color: #45C0A3;
   border-radius: 100px;
 `;
 

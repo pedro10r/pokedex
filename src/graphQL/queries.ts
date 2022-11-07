@@ -10,6 +10,11 @@ export const LOAD_POKEMONS = gql`
           name
         }
       }
+      pokemon_v2_pokemonspecy {
+        pokemon_v2_pokemoncolor {
+          name
+        }
+      }
     }
   }
 `;

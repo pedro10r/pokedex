@@ -10,7 +10,6 @@ export const Container = styled.View`
   align-items: center;
   justify-content: flex-end;
 
-  background-color: #48D0B0;
   border-top-left-radius: 18px;
   border-top-right-radius: 18px;
 `;
@@ -28,7 +27,6 @@ export const Bubble = styled.View`
   align-items: center;
   justify-content: center;
 
-  background-color: #71E5C9;
   border-radius: 75px;
 `;
 
@@ -75,7 +73,6 @@ export const Habilities = styled.View`
 export const Hability = styled.View`
   padding: 4px 10px;
 
-  background-color: #45C0A3;
   border-radius: 100px;
 `;
 

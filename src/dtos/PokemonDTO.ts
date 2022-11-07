@@ -7,6 +7,11 @@ export type PokemonInfoDTO = {
       name: string;
     }
   }[];
+  pokemon_v2_pokemonspecy: {
+    pokemon_v2_pokemoncolor: {
+      name: string;
+    }
+  }
 }
 
 export type PokemonDTO = {
