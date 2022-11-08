@@ -3,7 +3,7 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { Header } from '@components/Header';
 import { Stats } from './components/Stats';
 import { HeaderDetails } from './components/HeaderDetails';
-import { Load } from '@components/Load';
+import { LoadAnimation } from '@components/LoadAnimation';
 
 import { usePokemonDetail } from '@hooks/pokemonDetails';
 import { usePokemonColor, isWhiteColor } from '@hooks/pokemonColors';
@@ -48,7 +48,7 @@ export function Details() {
       <Container>
         <Header onPress={handleGoBack} />
           
-        {loading ? <Load /> : 
+        {loading ? <LoadAnimation /> : 
           <Content>
 
             <HeaderDetails

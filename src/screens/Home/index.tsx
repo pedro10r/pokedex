@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Header } from '@components/Header';
 import { Input } from '@components/Input';
 import { Card } from '@components/Card';
-import { Load } from '@components/Load';
+import { LoadAnimation } from '@components/LoadAnimation';
 
 import { usePokemon } from '@contexts/pokemon';
 
@@ -34,7 +34,7 @@ export function Home() {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <Container>
-        <Header />
+        <Header onPress={() => {}} />
 
         <Content>
           <Title>More than 250 Pokemons for you to choose your favorite</Title>
@@ -47,7 +47,7 @@ export function Home() {
             autoCorrect={false}
           />
 
-          {loading ? <Load /> :
+          {loading ? <LoadAnimation /> :
             <FlatList
               data={search.length > 0 ? filteredPokemons : pokemons.pokemon_v2_pokemon}
               keyExtractor={item => String(item.id)}

@@ -32,6 +32,6 @@ export const Icon = styled(ArrowLeft).attrs(({ theme }) => ({
 
 
 export const Logo = styled.Image`
-  width: 142px;
-  height: 55px;
+  width: 150px;
+  height: 50px;
 `;

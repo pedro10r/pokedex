@@ -14,8 +14,6 @@ import { PokemonProvider } from '@contexts/pokemon';
 import { theme } from './src/styles/themes/default';
 import { client } from './src/services/apollo';
 
-import { Load } from '@components/Load';
-
 export default function App() {
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
@@ -27,7 +25,7 @@ export default function App() {
     <ApolloProvider client={client}>
       <PokemonProvider>
         <ThemeProvider theme={theme}>
-          {fontsLoaded ? <Routes /> : <Load />}
+          {fontsLoaded && <Routes />}
         </ThemeProvider>
       </PokemonProvider>
     </ApolloProvider>
