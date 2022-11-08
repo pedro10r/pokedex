@@ -42,7 +42,7 @@ export const Bubble = styled.View`
   width: 135px;
   height: 135px;
   margin-bottom: 5px;
-  margin-top: 5px;
+  margin-top: ${RFValue(10)}px;
 
   align-items: center;
   justify-content: center;
