@@ -4,9 +4,11 @@ import logo from '../../assets/logo.png';
 
 import { Container, Logo, BackButton, Icon } from './styles';
 
-type Props = TouchableOpacityProps & {}
+type Props = {
+  onPress: () => void;
+}
 
-export function Header({ ...rest }: Props) {
+export function Header({ onPress }: Props) {
   return (
     <Container>
       <StatusBar
@@ -15,7 +17,7 @@ export function Header({ ...rest }: Props) {
         translucent
       />
       
-      <BackButton {...rest}>
+      <BackButton onPress={onPress}>
         <Icon />
       </BackButton>
 

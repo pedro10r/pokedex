@@ -1,15 +1,17 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
 
 type Props = {
   color?: string;
+  isTwoTypes?: boolean;
+  largeName?: boolean;
 }
 
 export const Container = styled.TouchableOpacity`
   width: 48%;
   height: 235px;
 
-  padding: 20px;
+  padding: 15px;
   margin-right: 14px;
   margin-top: 20px;
 
@@ -55,20 +57,34 @@ export const PokemonImage = styled.Image`
 
 export const PokemonName = styled.Text<Props>`
   width: 100%;
+
   font-family: ${({ theme }) => theme.fonts.bold};
-  font-size: ${RFValue(19)}px;
+  font-size: ${({ largeName }) => largeName ? RFValue(12) : RFValue(19)}px;
   color: ${({ theme, color }) => color ? color : theme.colors.white};
   text-align: center;
+
+  margin-top: ${({ largeName }) => largeName ? 5 : 0}px;
+  margin-bottom: ${({ largeName }) => largeName ? 5 : 0}px;
 `;
 
-export const Habilities = styled.View`
+export const Habilities = styled.View<Props>`
   width: 100%;
   flex-direction: row;
-  justify-content: space-around;
+  
+  ${({ isTwoTypes }) =>
+    isTwoTypes ?
+    css`
+      justify-content: space-between;
+    ` : css`
+      justify-content: center;
+    `
+  }
 `;
 
 export const Hability = styled.View`
-  padding: 4px 10px;
+  width: 48%;
+
+  padding: 4px 0;
   margin-top: 7px;
 
   border-radius: 100px;

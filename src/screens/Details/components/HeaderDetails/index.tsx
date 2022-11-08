@@ -28,6 +28,8 @@ export function HeaderDetails({ data }: Props) {
   const colorName = data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemoncolor.name;
   const { colors } = usePokemonColor(colorName);
 
+  const namePokemon = data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].name;
+
   return (
      <>
       <Bubble style={{ backgroundColor: colors?.secondary }}>
@@ -36,7 +38,7 @@ export function HeaderDetails({ data }: Props) {
           source={{ uri: imagePng }}
         />
 
-        {/* In case of use SVG */}
+        {/* if you want to use SVG just uncomment the code below */}
         {/* <SvgUri
           uri={imageSvg}
           width={130}
@@ -52,7 +54,10 @@ export function HeaderDetails({ data }: Props) {
             </NumberPokedex>
           </NumberPokedexArea>
 
-          <PokemonName color={isWhiteColor(colorName)}>
+          <PokemonName
+            color={isWhiteColor(colorName)} 
+            largeName={namePokemon.length > 9}
+          >
             {capitalized(data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].name)}
           </PokemonName>
 

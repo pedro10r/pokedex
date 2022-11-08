@@ -46,7 +46,7 @@ export function Card({ data, ...rest }: Props) {
           source={{ uri: imagePng }}
         />
         
-        {/* In case of use SVG */}
+        {/* if you want to use SVG just uncomment the code below */}
         {/* <SvgUri
           uri={imageSvg}
           width={130}
@@ -54,11 +54,15 @@ export function Card({ data, ...rest }: Props) {
         /> */}
       </Bubble>
       
-      <PokemonName color={isWhiteColor(colorName)}>
+      <PokemonName
+        color={isWhiteColor(colorName)}
+        numberOfLines={1}
+        largeName={data.name.length > 11}
+      >
         {capitalized(data.name)}
       </PokemonName>
 
-      <Habilities>
+      <Habilities isTwoTypes={data.pokemon_v2_pokemontypes.length > 1}>
         {data.pokemon_v2_pokemontypes.map((item, index) => (
           <Hability
             key={index}

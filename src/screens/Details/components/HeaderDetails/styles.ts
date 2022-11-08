@@ -4,6 +4,7 @@ import { Platform } from 'react-native';
 
 type Props = {
   color?: string;
+  largeName?: boolean;
 }
 
 export const Bubble = styled.View`
@@ -62,24 +63,29 @@ export const NumberPokedex = styled.Text`
 
 export const PokemonName = styled.Text<Props>`
   font-family: ${({ theme }) => theme.fonts.bold};
-  font-size: ${RFValue(24)}px;
+  font-size: ${({ largeName }) => largeName ? RFValue(20) : RFValue(24)}px;
   color: ${({ theme, color }) => color ? color : theme.colors.white};
 
   margin-bottom: 10px;
   margin-right: ${Platform.OS === 'android' ? 5 : 2}px;
+
+  width: 87%;
 `;
 
 export const Habilities = styled.View`
-  width: 90%;
-  padding-right: 15px;
+  width: 87%;
   flex-direction: row;
+  justify-content: space-between;
 `;
 
 export const Hability = styled.View`
-  padding: 4px 10px;
+  width: 48%;
+  padding: 4px 0;
   margin-right: 8px;
 
   border-radius: 100px;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const HabilityText = styled.Text<Props>`
