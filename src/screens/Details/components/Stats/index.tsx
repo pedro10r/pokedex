@@ -24,15 +24,15 @@ type Props = {
 }
 
 export function Stats({ data }: Props) {
-  const { colors } = useTheme();
+  const theme = useTheme();
 
   function colorPercentageProgress(value: number) {
     if (value > .0 && value < .5) {
-      return colors.danger;
+      return theme?.colors?.danger;
     } else if (value >= .5 && value <= .65) {
-      return colors.green_300;
+      return theme?.colors?.green_300;
     } else {
-      return colors.success;
+      return theme?.colors?.success;
     }
   }
 
@@ -61,7 +61,7 @@ export function Stats({ data }: Props) {
             <Ionicons
               name='male-sharp'
               size={RFValue(15)}
-              color={colors.blue_300}
+              color={theme?.colors?.blue_300}
             />
             <PercentText>87%</PercentText>
           </Gender>
@@ -70,7 +70,7 @@ export function Stats({ data }: Props) {
             <Ionicons
               name='female-sharp'
               size={RFValue(15)}
-              color={colors.pink_300}
+              color={theme?.colors?.pink_300}
             />
             <PercentText>13%</PercentText>
           </Gender>
@@ -87,7 +87,7 @@ export function Stats({ data }: Props) {
               progress={item.base_stat / 100}
               width={105}
               borderWidth={0}
-              unfilledColor={colors.gray_200}
+              unfilledColor={theme?.colors?.gray_200}
               color={colorPercentageProgress(item.base_stat / 100)}
             />
           </ValueStats>
@@ -103,7 +103,7 @@ export function Stats({ data }: Props) {
             progress={calculateTotalStats() / 600 * 100 / 100}
             width={105}
             borderWidth={0}
-            unfilledColor={colors.gray_200}
+            unfilledColor={theme?.colors?.gray_200}
             color={colorPercentageProgress(calculateTotalStats() / 600 * 100 / 100)}
           />
         </ValueStats>

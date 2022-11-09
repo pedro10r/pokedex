@@ -26,13 +26,13 @@ export function HeaderDetails({ data }: Props) {
   const { imageSvg, imagePng } = usePokemonSprites(data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].id);
 
   const colorName = data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemoncolor.name;
-  const { colors } = usePokemonColor(colorName);
+  const theme = usePokemonColor(colorName);
 
   const namePokemon = data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].name;
 
   return (
      <>
-      <Bubble style={{ backgroundColor: colors?.secondary }}>
+      <Bubble style={{ backgroundColor: theme?.colors?.secondary }}>
         <PokemonImage
           resizeMode="contain"
           source={{ uri: imagePng }}
@@ -46,7 +46,7 @@ export function HeaderDetails({ data }: Props) {
         /> */}
       </Bubble>
 
-      <Container style={{ backgroundColor: colors?.primary }}>
+      <Container style={{ backgroundColor: theme?.colors?.primary }}>
         <HeaderInfo>
           <NumberPokedexArea>
             <NumberPokedex>
@@ -65,7 +65,7 @@ export function HeaderDetails({ data }: Props) {
             {data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].pokemon_v2_pokemontypes.map((item) => (
               <Hability
                 key={item.type_id}
-                style={{ backgroundColor: colors?.support }}
+                style={{ backgroundColor: theme?.colors?.support }}
               >
                 <HabilityText color={isWhiteColor(colorName)}>
                   {capitalized(item.pokemon_v2_type.name)}

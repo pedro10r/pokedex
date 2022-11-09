@@ -32,7 +32,7 @@ export function Details() {
   const { data, loading } = usePokemonDetail(parseInt(id));
 
   const colorName = data?.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemoncolor.name!;
-  const { colors } = usePokemonColor(colorName);
+  const theme = usePokemonColor(colorName);
   
   function handleGoBack() {
     navigation.goBack();
@@ -64,7 +64,7 @@ export function Details() {
                 <DetailInfo>
                   <DetailInfoText>Weight:</DetailInfoText>
     
-                  <DetailInfoAreaValue style={{ backgroundColor: colors?.primary }}>
+                  <DetailInfoAreaValue style={{ backgroundColor: theme?.colors?.primary }}>
                     <DetailInfoValue color={isWhiteColor(colorName)}>
                       {data?.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].weight}kg
                     </DetailInfoValue>
@@ -74,7 +74,7 @@ export function Details() {
                 <DetailInfo>
                   <DetailInfoText>Height:</DetailInfoText>
     
-                  <DetailInfoAreaValue style={{ backgroundColor: colors?.primary }}>
+                  <DetailInfoAreaValue style={{ backgroundColor: theme?.colors?.primary }}>
                     <DetailInfoValue color={isWhiteColor(colorName)}>
                       {data?.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].height}m
                     </DetailInfoValue>
@@ -84,7 +84,7 @@ export function Details() {
                 <DetailInfo>
                   <DetailInfoText>Major Move:</DetailInfoText>
     
-                  <DetailInfoAreaValue style={{ backgroundColor: colors?.primary }}>
+                  <DetailInfoAreaValue style={{ backgroundColor: theme?.colors?.primary }}>
                     <DetailInfoValue color={isWhiteColor(colorName)}>
                       Solar Bean
                     </DetailInfoValue>

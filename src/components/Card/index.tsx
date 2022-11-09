@@ -28,11 +28,11 @@ export function Card({ data, ...rest }: Props) {
   const { imagePng, imageSvg } = usePokemonSprites(String(data.id));
   
   const colorName = data.pokemon_v2_pokemonspecy.pokemon_v2_pokemoncolor.name;
-  const { colors } = usePokemonColor(colorName);
+  const theme = usePokemonColor(colorName);
 
   return (
     <Container
-      style={{ backgroundColor: colors?.primary }}
+      style={{ backgroundColor: theme?.colors?.primary }}
       activeOpacity={0.7}
       {...rest}
     >
@@ -40,7 +40,7 @@ export function Card({ data, ...rest }: Props) {
         <NumberPokedex>#00{data.id}</NumberPokedex>
       </NumberPokedexArea>
 
-      <Bubble style={{ backgroundColor: colors?.secondary }}>
+      <Bubble style={{ backgroundColor: theme?.colors?.secondary }}>
         <PokemonImage
           resizeMode='contain'
           source={{ uri: imagePng }}
@@ -66,7 +66,7 @@ export function Card({ data, ...rest }: Props) {
         {data.pokemon_v2_pokemontypes.map((item, index) => (
           <Hability
             key={index}
-            style={{ backgroundColor: colors?.support }}
+            style={{ backgroundColor: theme?.colors?.support }}
           >
             <HabilityText color={isWhiteColor(colorName)}>
               {capitalized(item.pokemon_v2_type.name)}

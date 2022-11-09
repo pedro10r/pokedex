@@ -14,14 +14,14 @@ interface InputProps extends TextInputProps {
 }
 
 export function Input({ onPress, ...rest }: InputProps) {
-  const { colors } = useTheme();
+  const theme = useTheme();
 
   return (
     <Container>
       <IconSearch />
 
       <InputText
-        placeholderTextColor={colors.blue_400}
+        placeholderTextColor={theme?.colors?.blue_400}
         {...rest}
       />
 
