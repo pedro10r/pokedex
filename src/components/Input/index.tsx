@@ -21,11 +21,15 @@ export function Input({ onPress, ...rest }: InputProps) {
       <IconSearch />
 
       <InputText
+        testID='input-text'
         placeholderTextColor={theme?.colors?.blue_400}
         {...rest}
       />
 
-      <ButtonSearch onPress={onPress}>
+      <ButtonSearch
+        testID='button-search'
+        onPress={onPress}
+      >
         <Icon />
       </ButtonSearch>
     </Container>

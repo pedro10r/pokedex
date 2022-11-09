@@ -16,12 +16,15 @@ const Providers: React.FC<Props> = ({ children }) => (
 );
 
 describe('Input Component', () => {
-  it('the component renderer', () => {
-    render(
+  it('should be show text input and button search', () => {
+    const { getByTestId } = render(
       <Input />,
       {
         wrapper: Providers
       }
     );
+
+    expect(getByTestId('input-text')).toBeTruthy();
+    expect(getByTestId('button-search')).toBeTruthy();
   });
 });
