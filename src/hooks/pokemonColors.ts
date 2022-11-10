@@ -109,9 +109,11 @@ export function usePokemonColor(color: string) {
 
     default:
       return {
-        primary: 'transparent',
-        secondary: 'transparent',
-        support: 'transparent'
+        colors: {
+          primary: 'transparent',
+          secondary: 'transparent',
+          support: 'transparent'
+        }
       }
   }
 }
