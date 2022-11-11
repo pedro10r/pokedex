@@ -16,3 +16,13 @@ Como as tecnologias não param de se atualizar, não seria diferente com o react
 
 ### Tecnologias usadas: 
 _Typescript_ • _React Navigation_ • _Styled Components_ • _Expo Fonts (Inter)_ • _Babel Plugin Module Resolver (Para organizar as importações dos arquivos mais usados no projeto)_ • _React Native SVG_ • _GraphQL com ApolloClient_• _Lib Externa de Icons(Phospor Icons)_ • _Contextos_ • _Hooks_ • _Jest_ • _Testing-library React Native_...
+
+
+#### Screenshots
+
+<div>
+  <img align="center" alt="1" height="360em" width="180em" src="https://github.com/pedro10r/pokedex/blob/main/assets/screenshots/poke1.png">
+  <img align="center" alt="1" height="360em" width="180em" src="https://github.com/pedro10r/pokedex/blob/main/assets/screenshots/poke2.png">
+  <img align="center" alt="1" height="360em" width="180em" src="https://github.com/pedro10r/pokedex/blob/main/assets/screenshots/poke3.png">
+  <img align="center" alt="1" height="360em" width="180em" src="https://github.com/pedro10r/pokedex/blob/main/assets/screenshots/poke4.png">
+</div>
