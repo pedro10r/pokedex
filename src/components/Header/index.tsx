@@ -5,23 +5,30 @@ import logo from '../../assets/logo.png';
 import { Container, Logo, BackButton, Icon } from './styles';
 
 type Props = {
-  onPress: () => void;
+  hasButton?: boolean;
+  onPress?: () => void;
 }
 
-export function Header({ onPress }: Props) {
+export function Header({ hasButton = true, onPress }: Props) {
   return (
-    <Container>
+    <Container
+      hasButton={hasButton}
+    >
       <StatusBar
         barStyle="light-content"
         backgroundColor="transparent"
         translucent
       />
       
-      <BackButton onPress={onPress}>
-        <Icon />
-      </BackButton>
+      {hasButton && (
+        <BackButton onPress={onPress}>
+          <Icon />
+        </BackButton>
+      )}
 
-      <Logo source={logo} />
+      <Logo
+        source={logo}
+      />
     </Container>
   );
 }

@@ -1,11 +1,11 @@
 import React, { createContext } from "react";
 import { useQuery } from "@apollo/client";
 
-import { LOAD_POKEMONS } from "../../graphQL/queries";
+import { LOAD_POKEMONS } from "../../graphQL/pokemon/queries";
 import { PokemonDTO } from '@dtos/PokemonDTO';
 
 type PokemonContextData = {
-  pokemons: PokemonDTO;
+  data: PokemonDTO | undefined;
   loading: boolean;
 }
 
@@ -16,12 +16,12 @@ interface PokemonProviderProps {
 export const PokemonContext = createContext<PokemonContextData>({} as PokemonContextData);
 
 export const PokemonProvider = ({ children }: PokemonProviderProps) => {
-  const { data, loading } = useQuery(LOAD_POKEMONS);
+  const { data, loading } = useQuery<PokemonDTO | undefined>(LOAD_POKEMONS);
 
   return (
     <PokemonContext.Provider
       value={{
-        pokemons: data,
+        data,
         loading 
       }}
     >

@@ -12,7 +12,7 @@
   I chose to use PNG as default to follow the requested layout!
 */
 
-export function usePokemonSprites(id: string) {
+export function usePokemonImage(id: string) {
   const imageSvg = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`;
 
   const imagePng = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;

@@ -1,7 +1,6 @@
 import { PokemonDetailsDTO } from '@dtos/PokemonDetailsDTO';
-import { SvgUri } from 'react-native-svg';
 
-import { usePokemonSprites } from '@hooks/pokemonSprites';
+import { usePokemonImage } from '@hooks/pokemonImage';
 import { usePokemonColor, isWhiteColor } from '@hooks/pokemonColors';
 import { capitalized } from '../../../../utils/capitalized';
 
@@ -23,7 +22,7 @@ type Props = {
 }
 
 export function HeaderDetails({ data }: Props) {
-  const { imageSvg, imagePng } = usePokemonSprites(data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].id);
+  const { imagePng } = usePokemonImage(data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].id);
 
   const colorName = data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemoncolor.name;
   const theme = usePokemonColor(colorName);
@@ -37,13 +36,6 @@ export function HeaderDetails({ data }: Props) {
           resizeMode="contain"
           source={{ uri: imagePng }}
         />
-
-        {/* if you want to use SVG just uncomment the code below */}
-        {/* <SvgUri
-          uri={imageSvg}
-          width={130}
-          height={130}
-        /> */}
       </Bubble>
 
       <Container style={{ backgroundColor: theme?.colors?.primary }}>
