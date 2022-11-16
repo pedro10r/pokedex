@@ -3,7 +3,7 @@ import { RFValue } from 'react-native-responsive-fontsize';
 import * as Progress from 'react-native-progress';
 import { useTheme } from 'styled-components';
 
-import { PokemonDetailsDTO } from '@dtos/PokemonDetailsDTO';
+import { PokemonProps } from '@hooks/getPokemonDetails';
 import { capitalized } from '../../../../utils/capitalized';
 
 import {
@@ -20,7 +20,7 @@ import {
 } from './styles';
 
 type Props = {
-  data: PokemonDetailsDTO;
+  data: PokemonProps;
 }
 
 export function Stats({ data }: Props) {
@@ -37,7 +37,7 @@ export function Stats({ data }: Props) {
   }
 
   function calculateTotalStats() {
-    const stats = data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].pokemon_v2_pokemonstats;
+    const stats = data.stats!;
 
     let array = new Array();
     stats.forEach((item) => {
@@ -77,7 +77,7 @@ export function Stats({ data }: Props) {
         </GenderPercent>
       </StatsHeader>
 
-      {data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].pokemon_v2_pokemonstats.map((item) => (
+      {data.stats!.map((item) => (
         <ContentStats key={item.pokemon_v2_stat.name}>
           <TitleStats>{capitalized(item.pokemon_v2_stat.name)}</TitleStats>
 

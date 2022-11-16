@@ -1,4 +1,4 @@
-import { PokemonDetailsDTO } from '@dtos/PokemonDetailsDTO';
+import { PokemonProps } from '@hooks/getPokemonDetails';
 import { isWhiteColor, usePokemonColor } from '@hooks/pokemonColors';
 
 import { Stats } from '../Stats';
@@ -14,12 +14,11 @@ import {
 } from './styles';
 
 type Props = {
-  data: PokemonDetailsDTO;
+  data: PokemonProps;
 }
 
 export function ContentDetails({ data }: Props) {
-  const colorName = data?.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemoncolor.name!;
-  const theme = usePokemonColor(colorName);
+  const theme = usePokemonColor(data.color!);
 
   function formattedText(text: string) {
     // Line break remover
@@ -29,7 +28,7 @@ export function ContentDetails({ data }: Props) {
   return (
     <Container>
       <Title>
-        {formattedText(data?.pokemon_v2_pokemonspecies_by_pk?.pokemon_v2_pokemonspeciesflavortexts[0]?.flavor_text!)}
+        {formattedText(data.description!)}
       </Title>
 
       <DetailsGroup>
@@ -37,8 +36,8 @@ export function ContentDetails({ data }: Props) {
           <DetailInfoText>Weight:</DetailInfoText>
 
           <DetailInfoAreaValue style={{ backgroundColor: theme?.colors?.primary }}>
-            <DetailInfoValue color={isWhiteColor(colorName)}>
-              {data?.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].weight}kg
+            <DetailInfoValue color={isWhiteColor(data.color!)}>
+              {data.weight}kg
             </DetailInfoValue>
           </DetailInfoAreaValue>
         </DetailInfo>
@@ -47,8 +46,8 @@ export function ContentDetails({ data }: Props) {
           <DetailInfoText>Height:</DetailInfoText>
 
           <DetailInfoAreaValue style={{ backgroundColor: theme?.colors?.primary }}>
-            <DetailInfoValue color={isWhiteColor(colorName)}>
-              {data?.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].height}m
+            <DetailInfoValue color={isWhiteColor(data.color!)}>
+              {data.height}m
             </DetailInfoValue>
           </DetailInfoAreaValue>
         </DetailInfo>
@@ -57,7 +56,7 @@ export function ContentDetails({ data }: Props) {
           <DetailInfoText>Major Move:</DetailInfoText>
 
           <DetailInfoAreaValue style={{ backgroundColor: theme?.colors?.primary }}>
-            <DetailInfoValue color={isWhiteColor(colorName)}>
+            <DetailInfoValue color={isWhiteColor(data.color!)}>
               Solar Bean
             </DetailInfoValue>
           </DetailInfoAreaValue>

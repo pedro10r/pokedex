@@ -1,4 +1,4 @@
-import { PokemonDetailsDTO } from '@dtos/PokemonDetailsDTO';
+import { PokemonProps } from '@hooks/getPokemonDetails';
 
 import { usePokemonImage } from '@hooks/pokemonImage';
 import { usePokemonColor, isWhiteColor } from '@hooks/pokemonColors';
@@ -18,16 +18,12 @@ import {
 } from './styles';
 
 type Props = {
-  data: PokemonDetailsDTO;
+  data: PokemonProps;
 }
 
 export function HeaderDetails({ data }: Props) {
-  const { imagePng } = usePokemonImage(data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].id);
-
-  const colorName = data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemoncolor.name;
-  const theme = usePokemonColor(colorName);
-
-  const namePokemon = data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].name;
+  const theme = usePokemonColor(data.color!);
+  const { imagePng } = usePokemonImage(data.id!);
 
   return (
     <>
@@ -42,25 +38,25 @@ export function HeaderDetails({ data }: Props) {
         <HeaderInfo>
           <NumberPokedexArea>
             <NumberPokedex>
-              #00{data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].id}
+              #00{data.id}
             </NumberPokedex>
           </NumberPokedexArea>
 
           <PokemonName
-            color={isWhiteColor(colorName)}
-            largeName={namePokemon.length > 9}
+            color={isWhiteColor(data.color!)}
+            largeName={data.name!.length > 9}
           >
-            {capitalized(data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].name)}
+            {capitalized(data.name!)}
           </PokemonName>
 
           <Habilities>
-            {data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].pokemon_v2_pokemontypes.map((item) => (
+            {data.types!.map((item) => (
               <Hability
                 key={item.type_id}
                 style={{ backgroundColor: theme?.colors?.support }}
               >
-                <HabilityText color={isWhiteColor(colorName)}>
-                  {capitalized(item.pokemon_v2_type.name)}
+                <HabilityText color={isWhiteColor(data.color!)}>
+                  {capitalized(item.pokemon_v2_type.name!)}
                 </HabilityText>
               </Hability>
             ))}

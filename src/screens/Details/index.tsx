@@ -21,7 +21,7 @@ export function Details() {
   const route = useRoute();
   const { id } = route.params as RouteParams;
 
-  const { data, loading } = usePokemonDetail(parseInt(id));
+  const { pokemon, loading } = usePokemonDetail(parseInt(id));
 
   function handleGoBack() {
     navigation.goBack();
@@ -34,9 +34,9 @@ export function Details() {
 
         {loading ? <LoadAnimation /> :
           <Content>
-            <HeaderDetails data={data!} />
+            <HeaderDetails data={pokemon} />
 
-            <ContentDetails data={data!} />
+            <ContentDetails data={pokemon} />
           </Content>
         }
       </Container>
