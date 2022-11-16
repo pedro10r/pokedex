@@ -3,7 +3,7 @@
 #### App desenvolvido com React Native (Expo)
 
 #### Como usar:
-Depois de clonar o repo, rode `npm install` e para rodar o projeto em sua máquina `npx expo start` ou `expo start`.
+Depois de clonar o repo, rode `npm install --legacy-peer-deps` e para rodar o projeto em sua máquina `npx expo start`.
 
 #### O que o app faz?:
 Lista os pokemons, podendo filtrar pelo pokemon que você deseja e ainda pode ver vários detalhes dele.
