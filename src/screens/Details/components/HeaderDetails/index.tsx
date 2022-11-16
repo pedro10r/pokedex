@@ -30,7 +30,7 @@ export function HeaderDetails({ data }: Props) {
   const namePokemon = data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].name;
 
   return (
-     <>
+    <>
       <Bubble style={{ backgroundColor: theme?.colors?.secondary }}>
         <PokemonImage
           resizeMode="contain"
@@ -47,7 +47,7 @@ export function HeaderDetails({ data }: Props) {
           </NumberPokedexArea>
 
           <PokemonName
-            color={isWhiteColor(colorName)} 
+            color={isWhiteColor(colorName)}
             largeName={namePokemon.length > 9}
           >
             {capitalized(data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].name)}

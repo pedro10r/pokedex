@@ -38,19 +38,19 @@ export function Stats({ data }: Props) {
 
   function calculateTotalStats() {
     const stats = data.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].pokemon_v2_pokemonstats;
-    
+
     let array = new Array();
     stats.forEach((item) => {
       array.push(item.base_stat);
     })
 
-    const result =  array.reduce(function(sum, i) {
+    const result = array.reduce(function (sum, i) {
       return sum + i;
     })
 
     return result;
   }
-  
+
   return (
     <Container>
       <StatsHeader>

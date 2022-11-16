@@ -22,7 +22,7 @@ export const PokemonProvider = ({ children }: PokemonProviderProps) => {
     <PokemonContext.Provider
       value={{
         data,
-        loading 
+        loading
       }}
     >
       {children}

@@ -22,7 +22,7 @@ export function Details() {
   const { id } = route.params as RouteParams;
 
   const { data, loading } = usePokemonDetail(parseInt(id));
-  
+
   function handleGoBack() {
     navigation.goBack();
   }
@@ -31,11 +31,11 @@ export function Details() {
     <>
       <Container>
         <Header onPress={handleGoBack} />
-          
-        {loading ? <LoadAnimation /> : 
+
+        {loading ? <LoadAnimation /> :
           <Content>
             <HeaderDetails data={data!} />
-            
+
             <ContentDetails data={data!} />
           </Content>
         }

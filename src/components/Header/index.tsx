@@ -19,7 +19,7 @@ export function Header({ hasButton = true, onPress }: Props) {
         backgroundColor="transparent"
         translucent
       />
-      
+
       {hasButton && (
         <BackButton onPress={onPress}>
           <Icon />

@@ -26,9 +26,9 @@ export function Splash() {
           rotate: withSequence(
             withTiming(360 + 'deg', { duration: 1000 }),
             withTiming(0 + 'deg', { duration: 1000 },
-            () => {
-              runOnJS(startApp)();
-            }
+              () => {
+                runOnJS(startApp)();
+              }
             )
           ),
         },

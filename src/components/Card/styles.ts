@@ -73,7 +73,7 @@ export const Habilities = styled.View<Props>`
   
   ${({ isTwoTypes }) =>
     isTwoTypes ?
-    css`
+      css`
       justify-content: space-between;
     ` : css`
       justify-content: center;

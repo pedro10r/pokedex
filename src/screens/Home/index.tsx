@@ -17,12 +17,12 @@ import {
 export function Home() {
   const [search, setSearch] = useState('');
   const { data, loading } = usePokemon();
-  
+
   const filteredPokemons = search.length > 0
     ? data?.pokemon_v2_pokemon.filter(
       pokemon => pokemon.name.toLowerCase().includes(search.toLowerCase())
     )
-  : [];
+    : [];
 
   const pokemons = search.length > 0 ? filteredPokemons : data?.pokemon_v2_pokemon;
 

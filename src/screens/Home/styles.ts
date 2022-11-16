@@ -12,7 +12,7 @@ export const Container = styled.View`
 export const Content = styled.View`
   flex: 1;
   padding: 20px 15px 0;
-  padding-bottom: ${ Platform.OS === 'ios' ? getBottomSpace() : 15}px;
+  padding-bottom: ${Platform.OS === 'ios' ? getBottomSpace() : 15}px;
 `;
 
 export const Title = styled.Text`

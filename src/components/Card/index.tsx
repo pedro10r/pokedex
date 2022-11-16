@@ -23,7 +23,7 @@ type Props = TouchableOpacityProps & {
 
 export function Card({ data, ...rest }: Props) {
   const { imagePng } = usePokemonImage(String(data.id));
-  
+
   const colorName = data.pokemon_v2_pokemonspecy.pokemon_v2_pokemoncolor.name;
   const theme = usePokemonColor(colorName);
 
@@ -45,7 +45,7 @@ export function Card({ data, ...rest }: Props) {
           source={{ uri: imagePng }}
         />
       </Bubble>
-      
+
       <PokemonName
         color={isWhiteColor(colorName)}
         numberOfLines={1}

@@ -11,7 +11,7 @@ interface Props {
 
 const Providers: React.FC<Props> = ({ children }) => (
   <ThemeProvider theme={theme}>
-    { children }
+    {children}
   </ThemeProvider>
 );
 
@@ -22,7 +22,7 @@ const data = {
     {
       type_id: 1,
       pokemon_v2_type: {
-          name: 'Poison',
+        name: 'Poison',
       },
     }
   ],
