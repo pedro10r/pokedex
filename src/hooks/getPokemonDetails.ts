@@ -32,8 +32,8 @@ export function usePokemonDetail(id: number) {
   const pokemon: PokemonProps = {
     id: data?.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].id,
     name: data?.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].name,
-    height: data?.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].weight,
-    weight: data?.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].height,
+    height: data?.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].height,
+    weight: data?.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].weight,
     description: data?.pokemon_v2_pokemonspecies_by_pk?.pokemon_v2_pokemonspeciesflavortexts[0]?.flavor_text,
     color: data?.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemoncolor.name,
     types: data?.pokemon_v2_pokemonspecies_by_pk.pokemon_v2_pokemons[0].pokemon_v2_pokemontypes,
