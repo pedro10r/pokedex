@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { useNavigation, useRoute } from '@react-navigation/native';
 
 import { Header } from '@components/Header';
@@ -23,9 +24,9 @@ export function Details() {
 
   const { pokemon, loading } = usePokemonDetail(parseInt(id));
 
-  function handleGoBack() {
+  const handleGoBack = useCallback(() => {
     navigation.goBack();
-  }
+  }, []);
 
   return (
     <>

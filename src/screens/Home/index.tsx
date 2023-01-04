@@ -21,6 +21,7 @@ export function Home() {
   const filteredPokemons = search.length > 0
     ? data?.pokemon_v2_pokemon.filter(
       pokemon => pokemon.name.toLowerCase().includes(search.toLowerCase())
+      || String(pokemon.id) === search,
     )
     : [];
 
@@ -34,7 +35,7 @@ export function Home() {
         />
 
         <Content>
-          <Title>More than 250 Pokemons for you to choose your favorite</Title>
+          <Title>More than 900 Pokemons for you to choose your favorite</Title>
 
           <Input
             placeholder="Search Pokémon"

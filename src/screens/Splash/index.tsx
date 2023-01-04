@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { Image, StatusBar } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
@@ -15,9 +16,9 @@ import { Container } from './styles';
 export function Splash() {
   const navigation = useNavigation();
 
-  function startApp() {
+  const startApp = useCallback(() => {
     navigation.navigate('home');
-  }
+  }, []);
 
   const logoStyle = useAnimatedStyle(() => {
     return {

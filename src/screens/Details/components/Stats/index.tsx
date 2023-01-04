@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { RFValue } from 'react-native-responsive-fontsize';
 import * as Progress from 'react-native-progress';
@@ -34,9 +35,9 @@ export function Stats({ data }: Props) {
     } else {
       return theme?.colors?.success;
     }
-  }
+  };
 
-  function calculateTotalStats() {
+  const calculateTotalStats = useMemo(() => {
     const stats = data.stats!;
 
     let array = new Array();
@@ -49,7 +50,7 @@ export function Stats({ data }: Props) {
     })
 
     return result;
-  }
+  }, []);
 
   return (
     <Container>
@@ -98,13 +99,13 @@ export function Stats({ data }: Props) {
         <TitleStats>Total</TitleStats>
 
         <ValueStats>
-          <Value>{calculateTotalStats()}</Value>
+          <Value>{calculateTotalStats}</Value>
           <Progress.Bar
-            progress={calculateTotalStats() / 600 * 100 / 100}
+            progress={calculateTotalStats / 600 * 100 / 100}
             width={105}
             borderWidth={0}
             unfilledColor={theme?.colors?.gray_200}
-            color={colorPercentageProgress(calculateTotalStats() / 600 * 100 / 100)}
+            color={colorPercentageProgress(calculateTotalStats / 600 * 100 / 100)}
           />
         </ValueStats>
       </ContentStats>

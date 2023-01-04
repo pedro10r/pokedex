@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
@@ -11,9 +12,9 @@ type Props = {
 export function PokemonList({ data }: Props) {
   const navigation = useNavigation();
 
-  function handleOpenDetails(id: number) {
+  const handleOpenDetails = useCallback((id: number) => {
     navigation.navigate('details', { id });
-  }
+  },[])
 
   return (
     <FlatList
