@@ -3,7 +3,7 @@ import { PokemonInfoDTO } from '@dtos/PokemonDTO';
 
 import { usePokemonImage } from '@hooks/pokemonImage';
 import { usePokemonColor, isWhiteColor } from '@hooks/pokemonColors';
-import { capitalized } from '../../utils/capitalized';
+import { capitalized } from '@utils/capitalized';
 
 import {
   Container,

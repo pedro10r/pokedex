@@ -4,7 +4,7 @@ import * as Progress from 'react-native-progress';
 import { useTheme } from 'styled-components';
 
 import { PokemonProps } from '@hooks/getPokemonDetails';
-import { capitalized } from '../../../../utils/capitalized';
+import { capitalized } from '@utils/capitalized';
 
 import {
   Container,

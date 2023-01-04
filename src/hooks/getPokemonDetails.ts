@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client';
 
 import { PokemonDetailsDTO } from '@dtos/PokemonDetailsDTO';
-import { LOAD_POKEMON_DETAIL } from '../graphQL/pokemon/queries';
+import { LOAD_POKEMON_DETAIL } from '@services/graphQL/pokemon/queries';
 
 export type PokemonProps = {
   id: string | undefined;

@@ -2,7 +2,7 @@ import { PokemonProps } from '@hooks/getPokemonDetails';
 
 import { usePokemonImage } from '@hooks/pokemonImage';
 import { usePokemonColor, isWhiteColor } from '@hooks/pokemonColors';
-import { capitalized } from '../../../../utils/capitalized';
+import { capitalized } from '@utils/capitalized';
 
 import {
   Container,

@@ -12,7 +12,7 @@ import { Routes } from './src/routes';
 
 import { PokemonProvider } from '@contexts/pokemon';
 import { theme } from './src/styles/themes/default';
-import { client } from './src/services/apollo';
+import { client } from '@services/client/apollo';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
