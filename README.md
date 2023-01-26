@@ -15,7 +15,7 @@ Como as tecnologias não param de se atualizar, não seria diferente com o react
 É uma das melhores bibliotecas para estilização, se não a melhor. Todas as cores dessa aplicação estão sendo fornecidas pelo tema padrão criado, não só as cores, mas como as fontes também, além de permitir criar tipos para deixar algum componente dinâmico, entre várias outras coisas.
 
 ### Tecnologias usadas: 
-_Typescript_ • _React Navigation_ • _Styled Components_ • _Expo Fonts (Inter)_ • _Babel Plugin Module Resolver (Para organizar as importações dos arquivos mais usados no projeto)_ • _React Native SVG_ • _GraphQL com ApolloClient_• _Lib Externa de Icons(Phospor Icons)_ • _Contextos_ • _Hooks_ • _Jest_ • _Testing-library React Native_...
+_Typescript_ • _React Navigation_ • _Styled Components_ • _Expo Fonts (Inter)_ • _Babel Plugin Module Resolver (Para organizar as importações dos arquivos mais usados no projeto)_ • _React Native SVG_ • _GraphQL com ApolloClient_• _Lib Externa de Icons(Phospor Icons)_ • _Contexts_ • _Hooks_ • _Jest_ • _Testing-library React Native_...
 
 
 #### Screenshots
